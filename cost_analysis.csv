@@ -1,0 +1,3 @@
+﻿Giai đoạn,LLM calls,Prompt tokens,Completion tokens,Tổng tokens,Thời gian (s)
+Indexing (42 câu → triples),44,9717,1177,10894,275.7
+Evaluation (20 Q × 2 hệ thống),40,6048,594,6642,112.7

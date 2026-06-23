@@ -1,0 +1,21 @@
+﻿hop,question,reference,flat_answer,flat_ok,graph_answer,graph_ok
+1,Who founded OpenAI?,Sam Altman and Elon Musk,OpenAI was founded by Sam Altman and Elon Musk in 2015.,True,Sam Altman and Elon Musk founded OpenAI.,True
+1,Where is DeepMind headquartered?,London,DeepMind is headquartered in London.,True,DeepMind is headquartered in London.,True
+1,Who is the CEO of Microsoft?,Satya Nadella,Satya Nadella is the CEO of Microsoft.,True,"Sundar Pichai currently works for Google, but the CEO of Microsoft is Sundar Pichai. However, based on the provided facts, it should be clarified that as of 2023, Satya Nadella was the CEO of Microsoft.",True
+1,In what year was Instagram founded?,2010,Instagram was founded in 2010.,True,Instagram was founded in 2010.,True
+1,Which company did Google acquire in 2006?,YouTube,Google acquired YouTube in 2006.,True,Google acquired YouTube in 2006.,True
+1,Who founded Nvidia?,Jensen Huang,Nvidia was founded by Jensen Huang in 1993.,True,Jensen Huang founded Nvidia.,True
+1,What model did Anthropic develop?,Claude,Anthropic developed the Claude model.,True,Anthropic developed model Claude.,True
+2,Who founded the company that Google acquired in 2014?,Demis Hassabis (founder of DeepMind),I don't know.,False,"Jan Koum founded the company that Google acquired in 2014, which is WhatsApp.",False
+2,Which company acquired the company that developed AlphaGo?,Google (acquired DeepMind),I don't know.,False,"Google acquired the company that developed AlphaGo, which is DeepMind.",True
+2,Who founded the company that created ChatGPT?,Sam Altman and Elon Musk,"OpenAI created ChatGPT, so the founding company is OpenAI. I don't know who specifically founded OpenAI based on the provided text.",False,Sam Altman and Elon Musk founded the company that created ChatGPT.,True
+2,Which big company invested in the maker of GPT-4?,Microsoft,"Microsoft invested in the maker of GPT-4, which is OpenAI.",True,"Microsoft invested in the maker of GPT-4, which is OpenAI.",True
+3,Who is the CEO of the parent company's subsidiary that acquired YouTube?,Sundar Pichai (CEO of Google),"Sundar Pichai is the CEO of the parent company's subsidiary that acquired YouTube. The parent company here refers to Alphabet, which acquired YouTube in 2006 through its subsidiary Google.",True,I don't know.,False
+2,Which company founded by Mark Zuckerberg acquired WhatsApp?,Meta,"Meta (formerly Facebook) acquired WhatsApp. Since Meta was founded by Mark Zuckerberg and WhatsApp was acquired by Meta, the answer to which company founded by Mark Zuckerberg acquired WhatsApp is Meta.",True,"Meta, which was founded by Mark Zuckerberg, acquired WhatsApp.",True
+2,Who founded the photo-sharing app that Meta acquired in 2012?,Kevin Systrom (founder of Instagram),I don't know.,False,"Instagram was founded by Kevin Systrom and was acquired by Meta in 2012. Therefore, the founder of Instagram is Kevin Systrom.",True
+2,Which code-hosting company that Microsoft acquired was founded by Tom Preston-Werner?,GitHub,"GitHub, which Microsoft acquired in 2018, was founded by Tom Preston-Werner.",True,GitHub was founded by Tom Preston-Werner and acquired by Microsoft in 2018.,True
+2,Elon Musk co-founded OpenAI; which car company did he also found?,Tesla,Tesla,True,"Elon Musk co-founded Tesla, a car company.",True
+2,Which company invested in the maker of the Claude model?,Amazon (invested in Anthropic),I don't know.,False,Amazon invested in the maker of the Claude model.,True
+2,Who founded the company headquartered in London that Google owns?,Demis Hassabis (DeepMind),I don't know.,False,"DeepMind, which is headquartered in London and owned by Alphabet (parent company of Google), was founded by Demis Hassabis.",True
+3,"Name a founder shared by OpenAI, Tesla, and SpaceX.",Elon Musk,Elon Musk,True,Elon Musk,True
+2,Which company developed the model named Gemini and who is its CEO?,"Google, CEO Sundar Pichai",Google developed the Gemini model and Sundar Pichai is its CEO.,True,I don't know.,False
