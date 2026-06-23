@@ -1,67 +1,83 @@
-# KẾT QUẢ LAB DAY 19 — GraphRAG vs Flat RAG
+# KẾT QUẢ LAB DAY 19 — GraphRAG vs Flat RAG (US EV Corpus)
 
-- Mô hình LLM: `qwen2.5:3b` (Ollama, local) · Chi phí tiền tệ: **$0.00**
-- Embeddings: all-MiniLM-L6-v2 · Vector DB: FAISS · Graph: NetworkX (75 node, 78 cạnh)
+- LLM: `qwen2.5:3b` (Ollama, local) · Chi phí tiền tệ: **$0.00**
+- Corpus: 70 docs → 341 sampled chunks · Graph: NetworkX (579 node, 455 cạnh)
 
 ## Tổng hợp độ chính xác
 | Hệ thống   |   Đúng / 20 | Accuracy (tất cả)   | Accuracy (đa bước)   |
 |:-----------|------------:|:--------------------|:---------------------|
-| Flat RAG   |          14 | 70%                 | 54%                  |
-| GraphRAG   |          17 | 85%                 | 77%                  |
+| Flat RAG   |          12 | 57%                 | 56%                  |
+| GraphRAG   |          19 | 90%                 | 78%                  |
 
-## Deliverable #4 — Phân tích chi phí (Token usage & Time)
-| Giai đoạn                      |   LLM calls |   Prompt tokens |   Completion tokens |   Tổng tokens |   Thời gian (s) |
-|:-------------------------------|------------:|----------------:|--------------------:|--------------:|----------------:|
-| Indexing (42 câu → triples)    |          44 |            9717 |                1177 |         10894 |           275.7 |
-| Evaluation (20 Q × 2 hệ thống) |          40 |            6048 |                 594 |          6642 |           112.7 |
+## Deliverable #4 — Chi phí (Token usage & Time)
+| Giai đoạn                       |   LLM calls |   Prompt tokens |   Completion tokens |   Tổng tokens |   Thời gian (s) |
+|:--------------------------------|------------:|----------------:|--------------------:|--------------:|----------------:|
+| Indexing (341 chunks → triples) |         341 |          180137 |               17727 |        197864 |          1782   |
+| Evaluation (20 Q × 2 hệ thống)  |          42 |           24321 |                 447 |         24768 |           112.4 |
 
 ## Deliverable #3 — Bảng so sánh 20 câu hỏi
-|   hop | question                                                                              | flat_ok   | graph_ok   | flat_answer                                                                                                                                                                                                | graph_answer                                                                                                                                                                                               |
-|------:|:--------------------------------------------------------------------------------------|:----------|:-----------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|     1 | Who founded OpenAI?                                                                   | True      | True       | OpenAI was founded by Sam Altman and Elon Musk in 2015.                                                                                                                                                    | Sam Altman and Elon Musk founded OpenAI.                                                                                                                                                                   |
-|     1 | Where is DeepMind headquartered?                                                      | True      | True       | DeepMind is headquartered in London.                                                                                                                                                                       | DeepMind is headquartered in London.                                                                                                                                                                       |
-|     1 | Who is the CEO of Microsoft?                                                          | True      | True       | Satya Nadella is the CEO of Microsoft.                                                                                                                                                                     | Sundar Pichai currently works for Google, but the CEO of Microsoft is Sundar Pichai. However, based on the provided facts, it should be clarified that as of 2023, Satya Nadella was the CEO of Microsoft. |
-|     1 | In what year was Instagram founded?                                                   | True      | True       | Instagram was founded in 2010.                                                                                                                                                                             | Instagram was founded in 2010.                                                                                                                                                                             |
-|     1 | Which company did Google acquire in 2006?                                             | True      | True       | Google acquired YouTube in 2006.                                                                                                                                                                           | Google acquired YouTube in 2006.                                                                                                                                                                           |
-|     1 | Who founded Nvidia?                                                                   | True      | True       | Nvidia was founded by Jensen Huang in 1993.                                                                                                                                                                | Jensen Huang founded Nvidia.                                                                                                                                                                               |
-|     1 | What model did Anthropic develop?                                                     | True      | True       | Anthropic developed the Claude model.                                                                                                                                                                      | Anthropic developed model Claude.                                                                                                                                                                          |
-|     2 | Who founded the company that Google acquired in 2014?                                 | False     | False      | I don't know.                                                                                                                                                                                              | Jan Koum founded the company that Google acquired in 2014, which is WhatsApp.                                                                                                                              |
-|     2 | Which company acquired the company that developed AlphaGo?                            | False     | True       | I don't know.                                                                                                                                                                                              | Google acquired the company that developed AlphaGo, which is DeepMind.                                                                                                                                     |
-|     2 | Who founded the company that created ChatGPT?                                         | False     | True       | OpenAI created ChatGPT, so the founding company is OpenAI. I don't know who specifically founded OpenAI based on the provided text.                                                                        | Sam Altman and Elon Musk founded the company that created ChatGPT.                                                                                                                                         |
-|     2 | Which big company invested in the maker of GPT-4?                                     | True      | True       | Microsoft invested in the maker of GPT-4, which is OpenAI.                                                                                                                                                 | Microsoft invested in the maker of GPT-4, which is OpenAI.                                                                                                                                                 |
-|     3 | Who is the CEO of the parent company's subsidiary that acquired YouTube?              | True      | False      | Sundar Pichai is the CEO of the parent company's subsidiary that acquired YouTube. The parent company here refers to Alphabet, which acquired YouTube in 2006 through its subsidiary Google.               | I don't know.                                                                                                                                                                                              |
-|     2 | Which company founded by Mark Zuckerberg acquired WhatsApp?                           | True      | True       | Meta (formerly Facebook) acquired WhatsApp. Since Meta was founded by Mark Zuckerberg and WhatsApp was acquired by Meta, the answer to which company founded by Mark Zuckerberg acquired WhatsApp is Meta. | Meta, which was founded by Mark Zuckerberg, acquired WhatsApp.                                                                                                                                             |
-|     2 | Who founded the photo-sharing app that Meta acquired in 2012?                         | False     | True       | I don't know.                                                                                                                                                                                              | Instagram was founded by Kevin Systrom and was acquired by Meta in 2012. Therefore, the founder of Instagram is Kevin Systrom.                                                                             |
-|     2 | Which code-hosting company that Microsoft acquired was founded by Tom Preston-Werner? | True      | True       | GitHub, which Microsoft acquired in 2018, was founded by Tom Preston-Werner.                                                                                                                               | GitHub was founded by Tom Preston-Werner and acquired by Microsoft in 2018.                                                                                                                                |
-|     2 | Elon Musk co-founded OpenAI; which car company did he also found?                     | True      | True       | Tesla                                                                                                                                                                                                      | Elon Musk co-founded Tesla, a car company.                                                                                                                                                                 |
-|     2 | Which company invested in the maker of the Claude model?                              | False     | True       | I don't know.                                                                                                                                                                                              | Amazon invested in the maker of the Claude model.                                                                                                                                                          |
-|     2 | Who founded the company headquartered in London that Google owns?                     | False     | True       | I don't know.                                                                                                                                                                                              | DeepMind, which is headquartered in London and owned by Alphabet (parent company of Google), was founded by Demis Hassabis.                                                                                |
-|     3 | Name a founder shared by OpenAI, Tesla, and SpaceX.                                   | True      | True       | Elon Musk                                                                                                                                                                                                  | Elon Musk                                                                                                                                                                                                  |
-|     2 | Which company developed the model named Gemini and who is its CEO?                    | True      | False      | Google developed the Gemini model and Sundar Pichai is its CEO.                                                                                                                                            | I don't know.                                                                                                                                                                                              |
+|   hop | question                                                                                | flat_ok   | graph_ok   | flat_answer                                                                                                                                              | graph_answer                                                                                                                       |
+|------:|:----------------------------------------------------------------------------------------|:----------|:-----------|:---------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------|
+|     1 | What stock ticker does Tesla trade under?                                               | True      | True       | TSLA                                                                                                                                                     | Tesla trades as TSLA.                                                                                                              |
+|     1 | Which sedan model does NIO make?                                                        | False     | True       | I don't know.                                                                                                                                            | Model ET7                                                                                                                          |
+|     1 | Who is the CEO of NIO?                                                                  | False     | True       | I don't know.                                                                                                                                            | William Li is the CEO of NIO.                                                                                                      |
+|     1 | What stock ticker does Polestar trade under?                                            | True      | True       | Polestar trades under the stock ticker PSNY.                                                                                                             | Polestar trades under the stock ticker PSNY.                                                                                       |
+|     1 | In which city is Polestar based?                                                        | False     | True       | I don't know.                                                                                                                                            | Polestar is based in GOTHENBURG.                                                                                                   |
+|     1 | In what year was Nikola founded?                                                        | False     | True       | I don't know.                                                                                                                                            | Nikola was founded in 2015.                                                                                                        |
+|     1 | In which U.S. city is Nikola headquartered?                                             | False     | True       | I don't know.                                                                                                                                            | Nikola is headquartered in PHOENIX.                                                                                                |
+|     1 | What stock ticker does VinFast trade under?                                             | True      | True       | VinFast trades under the stock ticker VFS.                                                                                                               | VinFast trades as VFS.                                                                                                             |
+|     1 | In which country is BYD based?                                                          | True      | True       | BYD is based in China.                                                                                                                                   | BYD is based in China.                                                                                                             |
+|     1 | What charging network does Tesla operate?                                               | True      | True       | Tesla operates a national network of Superchargers and destination chargers that are predominantly located within Metropolitan Statistical Areas (MSAs). | Tesla operates a network of Superchargers and Destination Chargers.                                                                |
+|     2 | What stock ticker does the EV maker based in Gothenburg trade under?                    | False     | True       | I don't know.                                                                                                                                            | PSNY                                                                                                                               |
+|     2 | Which company, founded in 2015 and headquartered in Phoenix, makes electric trucks?     | True      | True       | Nikola Corporation                                                                                                                                       | Nikola                                                                                                                             |
+|     2 | What kind of trucks does the company headquartered in Phoenix produce?                  | True      | True       | Nikola Corporation produces hydrogen electric trucks and battery powered trucks headquartered in Phoenix.                                                | The company headquartered in Phoenix, Nikola, produces Hydrogen Electric Trucks and Battery Powered Trucks.                        |
+|     2 | Which China-based company competes with Tesla in the EV market?                         | True      | True       | BYD competes with Tesla in the EV market.                                                                                                                | BYD competes with Tesla in the EV market.                                                                                          |
+|     2 | Who is the chief executive of the company that makes the ET7?                           | False     | True       | I don't know.                                                                                                                                            | William Li is the CEO of NIO, which makes the ET7. Therefore, the chief executive of the company that makes the ET7 is William Li. |
+|     2 | Which Chinese EV company did Elon Musk comment on?                                      | True      | True       | BYD                                                                                                                                                      | BYD                                                                                                                                |
+|     2 | What stock ticker does the maker of the Model Y trade under?                            | False     | True       | XPEV                                                                                                                                                     | Tesla trades as TSLA.                                                                                                              |
+|     1 | What was Tesla's reported US EV market share in Q1 2024?                                | True      | True       | Tesla's reported US EV market share in Q1 2024 was 51.3%.                                                                                                | Tesla's market share in Q1 2024 was 51.3%.                                                                                         |
+|     1 | What is VinFast's annual delivery target for vehicles?                                  | True      | True       | VinFast's annual delivery target for vehicles is 80,000.                                                                                                 | VinFast's annual delivery target is 80,000 vehicles.                                                                               |
+|     2 | In which city is Tesla's most productive manufacturing hub located?                     | True      | False      | Tesla's most productive manufacturing hub is located in Shanghai.                                                                                        | I don't know.                                                                                                                      |
+|     2 | Besides the Model Y, which more affordable Tesla sedan became popular after price cuts? | False     | False      | The Model 3 sedan became popular after Tesla's aggressive price cuts throughout the year.                                                                | I don't know.                                                                                                                      |
 
-## Các trường hợp Flat RAG ảo giác nhưng GraphRAG đúng
+## Các trường hợp Flat RAG sai nhưng GraphRAG đúng
 
-**Q:** Which company acquired the company that developed AlphaGo?
+**Q:** Which sedan model does NIO make?
 - Flat RAG (sai): I don't know.
-- GraphRAG (đúng): Google acquired the company that developed AlphaGo, which is DeepMind.
-- Đáp án: Google (acquired DeepMind)
+- GraphRAG (đúng): Model ET7
+- Đáp án: ET7
 
-**Q:** Who founded the company that created ChatGPT?
-- Flat RAG (sai): OpenAI created ChatGPT, so the founding company is OpenAI. I don't know who specifically founded OpenAI based on the provided text.
-- GraphRAG (đúng): Sam Altman and Elon Musk founded the company that created ChatGPT.
-- Đáp án: Sam Altman and Elon Musk
-
-**Q:** Who founded the photo-sharing app that Meta acquired in 2012?
+**Q:** Who is the CEO of NIO?
 - Flat RAG (sai): I don't know.
-- GraphRAG (đúng): Instagram was founded by Kevin Systrom and was acquired by Meta in 2012. Therefore, the founder of Instagram is Kevin Systrom.
-- Đáp án: Kevin Systrom (founder of Instagram)
+- GraphRAG (đúng): William Li is the CEO of NIO.
+- Đáp án: William Li
 
-**Q:** Which company invested in the maker of the Claude model?
+**Q:** In which city is Polestar based?
 - Flat RAG (sai): I don't know.
-- GraphRAG (đúng): Amazon invested in the maker of the Claude model.
-- Đáp án: Amazon (invested in Anthropic)
+- GraphRAG (đúng): Polestar is based in GOTHENBURG.
+- Đáp án: Gothenburg
 
-**Q:** Who founded the company headquartered in London that Google owns?
+**Q:** In what year was Nikola founded?
 - Flat RAG (sai): I don't know.
-- GraphRAG (đúng): DeepMind, which is headquartered in London and owned by Alphabet (parent company of Google), was founded by Demis Hassabis.
-- Đáp án: Demis Hassabis (DeepMind)
+- GraphRAG (đúng): Nikola was founded in 2015.
+- Đáp án: 2015
+
+**Q:** In which U.S. city is Nikola headquartered?
+- Flat RAG (sai): I don't know.
+- GraphRAG (đúng): Nikola is headquartered in PHOENIX.
+- Đáp án: Phoenix
+
+**Q:** What stock ticker does the EV maker based in Gothenburg trade under?
+- Flat RAG (sai): I don't know.
+- GraphRAG (đúng): PSNY
+- Đáp án: PSNY
+
+**Q:** Who is the chief executive of the company that makes the ET7?
+- Flat RAG (sai): I don't know.
+- GraphRAG (đúng): William Li is the CEO of NIO, which makes the ET7. Therefore, the chief executive of the company that makes the ET7 is William Li.
+- Đáp án: William Li
+
+**Q:** What stock ticker does the maker of the Model Y trade under?
+- Flat RAG (sai): XPEV
+- GraphRAG (đúng): Tesla trades as TSLA.
+- Đáp án: TSLA

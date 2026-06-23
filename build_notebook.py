@@ -1,243 +1,229 @@
 # -*- coding: utf-8 -*-
-"""Assemble the self-contained Day-19 GraphRAG deliverable notebook.
-
-The core library (graphrag_core.py) and corpus (corpus.py) are inlined verbatim
-into notebook cells so the .ipynb stands alone for submission, while remaining
-identical to the code already validated against Ollama.
+"""Assemble the Day-19 GraphRAG deliverable notebook for the lecturer's
+US Electric Vehicle corpus. The heavy indexing is done once by run_indexing.py;
+this notebook loads cached artifacts/ so it executes fast and reproducibly.
 """
-import re
 import nbformat as nbf
 from nbformat.v4 import new_notebook, new_markdown_cell, new_code_cell
-
-
-def strip_module_docstring(src: str) -> str:
-    """Remove the leading triple-quoted module docstring."""
-    m = re.match(r'\s*(?:#[^\n]*\n)*\s*(?:"""|\'\'\')', src)
-    if m:
-        q = src[m.end() - 3:m.end()]
-        end = src.index(q, m.end())
-        return src[end + 3:].lstrip("\n")
-    return src
-
-
-with open("corpus.py", encoding="utf-8") as f:
-    corpus_src = strip_module_docstring(f.read())
-with open("graphrag_core.py", encoding="utf-8") as f:
-    core_src = strip_module_docstring(f.read())
 
 cells = []
 md = lambda s: cells.append(new_markdown_cell(s))
 code = lambda s: cells.append(new_code_cell(s))
 
 # ---------------------------------------------------------------- Title
-md(r"""# LAB DAY 19 — Xây dựng hệ thống **GraphRAG** với Tech Company Corpus
+md(r"""# LAB DAY 19 — Xây dựng hệ thống **GraphRAG** với *US Electric Vehicle Corpus*
 
 **Sinh viên:** Nguyễn Đức Kiên Trung &nbsp;•&nbsp; **MSSV:** 2A202600769 &nbsp;•&nbsp; **Ngày:** 2026-06-23
 
-Notebook này xây dựng một pipeline **GraphRAG** hoàn chỉnh và so sánh với **Flat RAG**.
-Toàn bộ chạy **offline / miễn phí** bằng stack cục bộ:
+Pipeline **GraphRAG** hoàn chỉnh trên **bộ dữ liệu thật do giảng viên cung cấp** (`dataset/` — 70 tài liệu
+web về ngành **xe điện (EV) Mỹ**), so sánh với **Flat RAG**. Toàn bộ chạy **offline / miễn phí**:
 
 | Thành phần | Công cụ |
 |---|---|
 | LLM (trích xuất + sinh câu trả lời) | **Ollama** · `qwen2.5:3b` |
 | Embeddings (Flat RAG) | `sentence-transformers · all-MiniLM-L6-v2` |
-| Vector DB (Flat RAG) | **FAISS** |
+| Vector index (Flat RAG) | **FAISS** (cosine) |
 | Đồ thị tri thức (GraphRAG) | **NetworkX** (MultiDiGraph) |
 | Trực quan hóa | **Matplotlib** |
 
-### Mục tiêu
-1. Trích xuất thực thể (Entity) & quan hệ (Relation) từ văn bản thô → **Triples**.
-2. Dựng **Knowledge Graph** bằng NetworkX (có khử trùng lặp).
-3. Truy vấn **đa bước (2-hop)**: entity linking → BFS → textualization → LLM.
-4. So sánh độ chính xác **Flat RAG vs GraphRAG** trên 20 câu hỏi benchmark + phân tích chi phí.
+### Bộ dữ liệu
+70 file `doc_1.txt … doc_70.txt`, mỗi file có cấu trúc `Query / Title / Link / Snippet / Full Content`,
+thuộc 8 chủ đề truy vấn về EV Mỹ (sentiment, financial performance, investor sentiment, market trends,
+regional analysis, US-vs-global, top EV stocks).
+
+### Quy trình
+1. **Load + clean** 70 tài liệu (lọc boilerplate web + nhiễu nhị phân từ file PDF).
+2. **Indexing:** LLM trích xuất **triples** `(subject, PREDICATE, object)` → dựng **Knowledge Graph** (khử trùng lặp).
+3. **Querying:** truy vấn **đa bước (2-hop)** bằng entity-linking → BFS → textualization → LLM.
+4. **Evaluation:** so sánh **Flat RAG vs GraphRAG** trên **20 câu hỏi benchmark** + phân tích chi phí.
+
+> ⚙️ **Chi phí & quy mô:** Bước Indexing (gọi LLM cho từng chunk) là phần tốn kém nhất nên được chạy **một lần**
+> bởi `run_indexing.py` và lưu vào `artifacts/`. Notebook này **nạp lại artifacts** để chạy nhanh, tái lập được.
+> Vì lý do chi phí, đồ thị được dựng từ **mẫu chunk trải đều** mỗi tài liệu (không phải toàn bộ 70 file) —
+> đây là một đánh đổi cost/coverage điển hình của GraphRAG ở quy mô lớn.
 """)
 
 # ---------------------------------------------------------------- Part 1 research
 md(r"""## Phần 1 — Nghiên cứu (Research)
 
 **1. Entity Extraction — LLM phân biệt thực thể (Node) và thuộc tính (Property) thế nào?**
-LLM dựa vào vai trò ngữ nghĩa trong câu. *Thực thể* là đối tượng có danh tính riêng, có thể được
-tham chiếu lại và đứng làm chủ/tân ngữ của nhiều quan hệ (công ty, người, sản phẩm) → trở thành **Node**.
-*Thuộc tính* là giá trị mô tả gắn liền một thực thể, thường không có quan hệ riêng (năm thành lập, thành phố) →
-gắn vào node dưới dạng **edge tới một literal** hoặc property. Trong lab này ta mô hình hoá mọi thứ thành
-triple `(subject, PREDICATE, object)`; những giá trị như năm `2015` là object literal của quan hệ `FOUNDED_IN`.
+Thực thể là đối tượng có danh tính riêng, được tham chiếu lại và làm chủ/tân ngữ của nhiều quan hệ
+(hãng EV như *Tesla, NIO, Polestar*; người; mẫu xe; mã cổ phiếu) → **Node**. Thuộc tính là giá trị mô tả
+gắn với một thực thể (năm thành lập, thành phố, mã ticker) → biểu diễn bằng **cạnh tới một literal**.
+Ở đây mọi thứ là triple `(subject, PREDICATE, object)`; vd `(Nikola, FOUNDED_IN, 2015)`.
 
-**2. Graph Construction — Vì sao khử trùng lặp (Deduplication) lại quan trọng?**
-LLM tạo ra nhiều biến thể bề mặt cho cùng một thực thể: *"Google"*, *"Google LLC"*, *"the company"*.
-Nếu không hợp nhất, đồ thị bị **phân mảnh**: các sự kiện về cùng một thực thể nằm rải ở nhiều node khác nhau,
-khiến việc duyệt đa bước **đứt gãy** (không tìm được đường đi) và làm phình số node vô nghĩa.
-Khử trùng lặp (chuẩn hóa tên + gộp alias) đảm bảo **một thực thể = một node**, giữ cho các chuỗi quan hệ liền mạch.
+**2. Graph Construction — Vì sao khử trùng lặp (Deduplication) quan trọng?**
+LLM sinh nhiều biến thể cho cùng thực thể: *"GM" / "General Motors" / "the automaker"*,
+*"VW" / "Volkswagen Group"*. Không hợp nhất → đồ thị **phân mảnh**, chuỗi suy luận đa bước **đứt gãy**
+và số node phình vô nghĩa. `canonical()` chuẩn hóa tên + gộp alias để **một thực thể = một node**.
 
-**3. Query Answering — Khác biệt giữa duyệt đồ thị (BFS) và tìm kiếm vector?**
-*Vector search (Flat RAG)* trả về các đoạn văn **tương tự bề mặt** với câu hỏi; nó **không có khái niệm liên kết**
-giữa các sự kiện, nên với câu hỏi đa bước ("Ai sáng lập công ty mà Google mua năm 2014?") nó thường lấy nhầm đoạn
-và **bịa (hallucinate)**. *BFS trên đồ thị (GraphRAG)* đi theo **quan hệ tường minh**: từ node `Google` → cạnh
-`ACQUIRED` → `DeepMind` → cạnh `FOUNDED_BY` → `Demis Hassabis`. Nó **lần theo cấu trúc tri thức** thay vì độ tương tự,
-nên giải được suy luận nhiều bước.
+**3. Query Answering — Khác biệt BFS trên đồ thị vs tìm kiếm vector?**
+*Vector search (Flat RAG)* trả về các đoạn **tương tự bề mặt** với câu hỏi, **không hiểu liên kết** giữa các
+sự kiện → với câu hỏi đa bước (vd *"mã cổ phiếu của hãng EV đặt trụ sở ở Gothenburg là gì?"*) nó dễ lấy nhầm
+đoạn và **bịa**. *BFS trên đồ thị (GraphRAG)* đi theo **quan hệ tường minh**:
+`Gothenburg ← HEADQUARTERED_IN ← Polestar → TRADES_AS → PSNY`, lần theo **cấu trúc tri thức** thay vì độ tương tự.
 """)
 
-# ---------------------------------------------------------------- Part 2 setup
-md(r"""## Phần 2 — Environment Setup
-
-Cài đặt (chỉ chạy 1 lần). Lab dùng Ollama cục bộ thay cho OpenAI để **miễn phí & offline**:
+# ---------------------------------------------------------------- Setup
+md(r"""## Phần 2 — Setup & Load corpus
 
 ```bash
-pip install networkx matplotlib neo4j openai pandas
-pip install langchain langchain-openai faiss-cpu sentence-transformers
-# LLM cục bộ:  https://ollama.com  ->  ollama pull qwen2.5:3b
+pip install networkx matplotlib pandas faiss-cpu sentence-transformers nbformat jupyter tabulate
+# LLM cục bộ: https://ollama.com  ->  ollama pull qwen2.5:3b
 ```
-> `USE_TF=0` được set trước khi import `sentence-transformers` để tránh xung đột TensorFlow/Keras-3.
-""")
+`USE_TF=0` được set trước khi import `sentence-transformers` để tránh xung đột TensorFlow/Keras 3.""")
 
-code('import os\nos.environ["USE_TF"] = "0"\nos.environ["USE_TORCH"] = "1"\nos.environ["TOKENIZERS_PARALLELISM"] = "false"\n\n'
-     'import json, re, time, urllib.request\nfrom collections import defaultdict\n'
-     'import networkx as nx\nimport matplotlib.pyplot as plt\nimport pandas as pd\n'
-     'print("Imports OK")')
+code('import os\nos.environ["USE_TF"] = "0"; os.environ["USE_TORCH"] = "1"\n'
+     'os.environ["TOKENIZERS_PARALLELISM"] = "false"\n'
+     'import json, time, re\nimport networkx as nx\nimport matplotlib.pyplot as plt\nimport pandas as pd\n\n'
+     'import graphrag_core as gc\nfrom corpus_loader import load_documents, build_chunks\n'
+     'from benchmark_ev import BENCHMARK\nprint("Imports OK | LLM =", gc.LLM_MODEL)')
 
-# ---------------------------------------------------------------- Corpus cell
-md(r"""## Bộ dữ liệu — *Tech Company Corpus*
-
-42 câu sự kiện về các công ty công nghệ. Nhiều sự kiện được **móc xích** qua nhiều câu
-(vd: *DeepMind → sáng lập bởi Demis Hassabis*; *DeepMind → bị Google mua lại*) — đây chính là phần
-GraphRAG duyệt được còn Flat RAG hay bỏ sót.""")
-code(corpus_src)
-code('print(f"Corpus: {len(CORPUS)} câu | Benchmark: {len(BENCHMARK)} câu hỏi")\n'
-     'for d in CORPUS[:5]:\n    print(" •", d)')
-
-# ---------------------------------------------------------------- Core library cell
-md(r"""## Thư viện lõi GraphRAG
-
-Toàn bộ logic (gọi Ollama + đếm token, trích xuất triple, dựng đồ thị có khử trùng lặp,
-truy vấn 2-hop, và baseline Flat RAG) gói trong một cell để notebook **độc lập**.""")
-code(core_src)
+code('docs = load_documents()\n'
+     'print(f"Đã nạp {len(docs)} tài liệu\\n")\n'
+     'from collections import Counter\n'
+     'themes = Counter(d["query"] for d in docs)\n'
+     'print("8 chủ đề truy vấn:")\n'
+     'for q, n in themes.items():\n    print(f"  • ({n:2d} docs) {q}")\n'
+     'print("\\nVí dụ doc_1:")\n'
+     'print("  Title :", docs[0]["title"])\n'
+     'print("  Body  :", docs[0]["body"][:240], "...")')
 
 # ---------------------------------------------------------------- Step 1 indexing
 md(r"""## Bước 1 — Trích xuất Thực thể & Quan hệ (Indexing)
 
-Dùng LLM đọc từng câu và trả về JSON các triple `(subject, PREDICATE, object)`. Few-shot + ràng buộc
-`format="json"` của Ollama giúp output ổn định, dễ parse.""")
-code('reset_stats()\nALL_TRIPLES = []\nt0 = time.time()\n'
-     'for i, doc in enumerate(CORPUS):\n'
-     '    triples = extract_triples(doc)\n'
-     '    ALL_TRIPLES.extend(triples)\n'
-     '    print(f"[{i+1:2d}/{len(CORPUS)}] {len(triples)} triple  | {doc[:48]}")\n'
-     'INDEX_STATS = dict(STATS)\nINDEX_SECONDS = time.time() - t0\n'
-     'print(f"\\n==> {len(ALL_TRIPLES)} triple trong {INDEX_SECONDS:.1f}s | tokens={INDEX_STATS}")')
-code('print("Ví dụ 12 triple đầu tiên:")\n'
-     'for s, p, o in ALL_TRIPLES[:12]:\n    print(f"   ({s})  --{p}-->  ({o})")')
+Mỗi tài liệu được **làm sạch** và **chia chunk** (~900 ký tự). Vì gọi LLM cho mọi chunk rất tốn kém, ta lấy
+**mẫu trải đều 5 chunk/tài liệu** (`stride sampling`) — bắt được các sự kiện nằm rải khắp bài viết dài.
+LLM đọc từng chunk và trả JSON các triple; bộ lọc `_good_triple()` loại bỏ rác (URL, giờ giấc, span quá dài).
+
+> Phần này đã chạy sẵn bởi `run_indexing.py`; ở đây ta **nạp lại** kết quả từ `artifacts/`.""")
+
+code(r'''ART = "artifacts"
+ALL_TRIPLES = [tuple(t) for t in json.load(open(f"{ART}/triples.json", encoding="utf-8"))]
+CHUNKS = json.load(open(f"{ART}/chunks.json", encoding="utf-8"))
+META = json.load(open(f"{ART}/index_stats.json", encoding="utf-8"))
+INDEX_STATS, INDEX_SECONDS = META["stats"], META["seconds"]
+print(f"Sampled chunks   : {META['n_chunks']} (từ {META['n_docs']} docs)")
+print(f"Triples trích xuất: {len(ALL_TRIPLES)}")
+print(f"Thời gian indexing: {INDEX_SECONDS:.0f}s | tokens={INDEX_STATS}")
+print("\\nVí dụ 12 triple:")
+for s, p, o in ALL_TRIPLES[:12]:
+    print(f"   ({s})  --{p}-->  ({o})")''')
+
+md("**Demo trực tiếp** — chạy lại bộ trích xuất trên 1 chunk để minh hoạ cơ chế:")
+code(r'''demo_chunk = next(c for c in CHUNKS if "Nikola" in c["text"] or "Polestar" in c["text"])
+print("Chunk nguồn:", demo_chunk["text"][:260], "...\n")
+print("Triple LLM trích ra:")
+for t in gc.extract_triples(demo_chunk["text"]):
+    print("   ", t)''')
 
 # ---------------------------------------------------------------- Step 2 construction
 md(r"""## Bước 2 — Xây dựng Đồ thị (Construction) + Khử trùng lặp
 
-`canonical()` chuẩn hóa tên (gộp *Google LLC → Google*, *Facebook → Meta*…) trước khi thêm node,
-đảm bảo **một thực thể = một node**. Cạnh trùng lặp `(subj, pred, obj)` bị loại bỏ.""")
-code('G = build_graph(ALL_TRIPLES)\n'
-     'print(f"Đồ thị: {G.number_of_nodes()} node, {G.number_of_edges()} cạnh")\n'
-     'print("Bậc cao nhất (hub):")\n'
-     'for n, d in sorted(G.degree(), key=lambda x: -x[1])[:8]:\n    print(f"   {n:14s} degree={d}")')
+`build_graph()` chuẩn hóa tên qua `canonical()` (gộp *GM ↔ General Motors*, *VW ↔ Volkswagen*…) rồi thêm
+node/edge, loại cạnh trùng. Đồ thị thật khá lớn nên ta xem các **hub** (node nhiều liên kết nhất).""")
 
-md(r"""### Trực quan hóa đồ thị tri thức (Deliverable #2)
-Lưu ra `knowledge_graph.png` để nộp kèm báo cáo.""")
-code(r'''plt.figure(figsize=(20, 14))
-pos = nx.spring_layout(G, k=0.9, iterations=80, seed=42)
+code(r'''G = gc.build_graph(ALL_TRIPLES)
+print(f"Đồ thị tri thức: {G.number_of_nodes()} node, {G.number_of_edges()} cạnh")
+print("\\nTop-15 hub (degree cao nhất):")
+for n, d in sorted(G.degree(), key=lambda x: -x[1])[:15]:
+    print(f"   {str(n)[:28]:28s} degree={d}")''')
 
-# màu node: công ty (hub, degree cao) vs thực thể khác
-deg = dict(G.degree())
-companies = {"OpenAI","Google","Alphabet","DeepMind","Microsoft","Meta","Nvidia",
-             "Tesla","SpaceX","Anthropic","Apple","YouTube","Instagram","WhatsApp","GitHub"}
-node_colors = ["#ff7043" if n in companies else "#4fc3f7" for n in G.nodes()]
-node_sizes  = [600 + 300 * deg[n] for n in G.nodes()]
+md(r"""### Trực quan hóa (Deliverable #2)
+Đồ thị đầy đủ quá dày để hiển thị; ta vẽ **subgraph của ~45 node có degree cao nhất** và lưu
+`knowledge_graph.png`.""")
+code(r'''deg = dict(G.degree())
+top_nodes = [n for n, _ in sorted(deg.items(), key=lambda x: -x[1])[:45]]
+H = G.subgraph(top_nodes)
 
-nx.draw_networkx_nodes(G, pos, node_color=node_colors, node_size=node_sizes, alpha=0.95)
-nx.draw_networkx_edges(G, pos, edge_color="#9e9e9e", alpha=0.5, arrows=True,
-                       arrowsize=12, connectionstyle="arc3,rad=0.08")
-nx.draw_networkx_labels(G, pos, font_size=9, font_weight="bold")
-edge_labels = {(u, v): d["relation"] for u, v, d in G.edges(data=True)}
-nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels, font_size=6, font_color="#616161")
-plt.title("Tech Company Knowledge Graph (NetworkX) — cam = công ty, xanh = thực thể/literal",
-          fontsize=15)
+plt.figure(figsize=(22, 15))
+pos = nx.spring_layout(H, k=1.1, iterations=90, seed=42)
+sizes = [300 + 220 * deg[n] for n in H.nodes()]
+nx.draw_networkx_nodes(H, pos, node_color="#ff7043", node_size=sizes, alpha=0.9)
+nx.draw_networkx_edges(H, pos, edge_color="#90a4ae", alpha=0.45, arrows=True,
+                       arrowsize=10, connectionstyle="arc3,rad=0.08")
+nx.draw_networkx_labels(H, pos, font_size=8, font_weight="bold")
+elabels = {(u, v): d["relation"] for u, v, d in H.edges(data=True)}
+nx.draw_networkx_edge_labels(H, pos, edge_labels=elabels, font_size=5, font_color="#607d8b")
+plt.title("US EV Knowledge Graph — top-45 hub nodes (NetworkX)", fontsize=15)
 plt.axis("off"); plt.tight_layout()
 plt.savefig("knowledge_graph.png", dpi=130, bbox_inches="tight")
 print("Đã lưu knowledge_graph.png")
 plt.show()''')
 
-# ---------------------------------------------------------------- Step 3 querying
+# ---------------------------------------------------------------- Step 3 query
 md(r"""## Bước 3 — Truy vấn GraphRAG (Multi-hop)
 
-Quy trình: **(1)** lấy câu hỏi → **(2)** entity linking tìm node trong câu → **(3)** BFS 2-hop lấy
-subgraph lân cận → **(4)** textualization thành đoạn văn → gửi LLM sinh câu trả lời.""")
-code(r'''demo_q = "Who founded the company that Google acquired in 2014?"
-ans, ctx, seeds = graphrag_answer(demo_q, G, k=2)
+**(1)** câu hỏi → **(2)** entity-linking tìm node trong câu → **(3)** BFS 2-hop lấy subgraph lân cận →
+**(4)** textualization → LLM sinh câu trả lời chỉ dựa trên facts của đồ thị.""")
+code(r'''demo_q = "What stock ticker does Polestar trade under?"
+ans, ctx, seeds = gc.graphrag_answer(demo_q, G, k=2)
 print("Câu hỏi :", demo_q)
 print("Seeds   :", seeds)
-print("Subgraph context (textualized):")
-for line in ctx.split("\n"):
+print("Subgraph facts:")
+for line in ctx.split("\n")[:12]:
     print("   ", line)
-print("\nGraphRAG trả lời:", ans)''')
+print("\nGraphRAG:", ans)''')
 
 # ---------------------------------------------------------------- Flat RAG
 md(r"""## Baseline — Flat RAG (FAISS + MiniLM)
 
-Mỗi câu trong corpus là một passage; embed bằng MiniLM, đánh chỉ mục bằng FAISS (cosine similarity),
-truy hồi top-k passage tương tự nhất rồi đưa cho cùng một LLM. Đây là baseline để so sánh.""")
-code('flat = FlatRAG(CORPUS)\n'
-     'a, ctx = flat.answer(demo_q, k=4)\n'
-     'print("Flat RAG top-4 passages:")\n'
-     'for c in ctx:\n    print("   -", c)\n'
-     'print("\\nFlat RAG trả lời:", a)')
+Để so sánh **công bằng**, Flat RAG index **đúng tập chunk** mà GraphRAG đã dùng để dựng đồ thị
+(cùng cơ sở tri thức; biến số duy nhất là **cách truy hồi**). Mỗi chunk được embed bằng MiniLM, đánh chỉ mục
+FAISS, truy hồi top-k đoạn tương tự nhất rồi đưa cho cùng một LLM.""")
+code(r'''flat = gc.FlatRAG([c["text"] for c in CHUNKS])
+a, passages = flat.answer(demo_q, k=4)
+print("Flat RAG top-4 passages (rút gọn):")
+for p in passages:
+    print("   -", p[:110], "...")
+print("\nFlat RAG:", a)''')
 
-# ---------------------------------------------------------------- Step 4 evaluation
+# ---------------------------------------------------------------- Step 4 eval
 md(r"""## Bước 4 — So sánh & Đánh giá (Evaluation)
 
-Chạy **20 câu hỏi benchmark** trên cả hai hệ thống. Một câu được tính **đúng** nếu mọi token cốt lõi của
-đáp án tham chiếu xuất hiện trong câu trả lời (và không phải *"I don't know"*). Cột `hop` cho biết câu hỏi
-cần ghép ≥2 sự kiện (đa bước).""")
+**20 câu hỏi benchmark** (tự soạn, có đáp án kiểm chứng được từ corpus; trộn single-hop & multi-hop) chạy trên
+cả hai hệ thống. Một câu **đúng** nếu mọi token định danh cốt lõi của đáp án tham chiếu có trong câu trả lời
+(bỏ phần trong ngoặc — chỉ là chú thích) và câu trả lời không phải *"I don't know"*.""")
 code(r'''def is_correct(answer, ref):
-    """Đúng nếu MỌI token định danh cốt lõi của đáp án tham chiếu có trong câu trả lời.
-    Bỏ phần giải thích trong ngoặc đơn (vd '(founder of DeepMind)') vì đó là chú thích,
-    không phải token bắt buộc."""
     a = answer.lower()
     if "i don't know" in a or "i do not know" in a:
         return False
-    core = re.sub(r"\(.*?\)", " ", ref)  # bỏ phần trong ngoặc
-    keys = [w for w in re.findall(r"[A-Za-z0-9]+", core) if w[0].isupper() or w.isdigit()]
-    stop = {"founder","of","ceo","the","and","invested","in","name","a","model"}
-    keys = [w.lower() for w in keys if w.lower() not in stop]
+    core = re.sub(r"\(.*?\)", " ", ref)
+    keys = [w for w in re.findall(r"[A-Za-z0-9.\-]+", core) if w[0].isupper() or w[0].isdigit()]
+    stop = {"founder","of","ceo","the","and","in","name","a","model","city","country","maker","company"}
+    keys = [w.lower() for w in keys if w.lower() not in stop and len(w) > 1]
     return all(k in a for k in keys) if keys else False
 
-reset_stats(); rows = []
+reset = gc.reset_stats(); gc.reset_stats()
+rows = []
 for item in BENCHMARK:
     q, ref, hop = item["q"], item["ref"], item["hop"]
-    g_ans, _, _ = graphrag_answer(q, G, k=2)
+    g_ans, _, _ = gc.graphrag_answer(q, G, k=2)
     f_ans, _ = flat.answer(q, k=4)
-    rows.append({
-        "hop": hop, "question": q, "reference": ref,
-        "flat_answer": f_ans, "flat_ok": is_correct(f_ans, ref),
-        "graph_answer": g_ans, "graph_ok": is_correct(g_ans, ref),
-    })
-    print(f"[hop {hop}] {q[:46]:46s} | Flat {'OK ' if rows[-1]['flat_ok'] else 'X  '}"
+    rows.append({"hop": hop, "question": q, "reference": ref,
+                 "flat_answer": f_ans, "flat_ok": is_correct(f_ans, ref),
+                 "graph_answer": g_ans, "graph_ok": is_correct(g_ans, ref)})
+    print(f"[hop {hop}] {q[:44]:44s} | Flat {'OK ' if rows[-1]['flat_ok'] else 'X  '}"
           f"| Graph {'OK' if rows[-1]['graph_ok'] else 'X'}")
-EVAL_STATS = dict(STATS)
+EVAL_STATS = dict(gc.STATS)
 df = pd.DataFrame(rows)
-print("\nĐã chạy xong 20 câu hỏi.")''')
+print("\nXong 20 câu hỏi.")''')
 
 md("### Bảng so sánh 20 câu hỏi (Deliverable #3)")
-code('pd.set_option("display.max_colwidth", 60)\n'
+code('pd.set_option("display.max_colwidth", 55)\n'
      'df[["hop","question","flat_ok","graph_ok","flat_answer","graph_answer"]]')
 
 md("### Tổng hợp độ chính xác")
-code(r'''flat_acc  = df["flat_ok"].mean()
-graph_acc = df["graph_ok"].mean()
-multi = df[df["hop"] >= 2]
+code(r'''multi = df[df["hop"] >= 2]
 summary = pd.DataFrame({
     "Hệ thống": ["Flat RAG", "GraphRAG"],
-    "Đúng / 20": [df["flat_ok"].sum(), df["graph_ok"].sum()],
-    "Accuracy (tất cả)": [f"{flat_acc:.0%}", f"{graph_acc:.0%}"],
+    "Đúng / 20": [int(df["flat_ok"].sum()), int(df["graph_ok"].sum())],
+    "Accuracy (tất cả)": [f"{df['flat_ok'].mean():.0%}", f"{df['graph_ok'].mean():.0%}"],
     "Accuracy (đa bước)": [f"{multi['flat_ok'].mean():.0%}", f"{multi['graph_ok'].mean():.0%}"],
 })
 summary''')
 
-md(r"""### Các trường hợp Flat RAG **bị ảo giác** nhưng GraphRAG **trả lời đúng** (Deliverable yêu cầu)""")
+md(r"""### Các trường hợp Flat RAG **bị ảo giác / sai** nhưng GraphRAG **đúng**""")
 code(r'''halluc = df[(~df["flat_ok"]) & (df["graph_ok"])]
 print(f"Có {len(halluc)} trường hợp Flat RAG sai/ảo giác mà GraphRAG đúng:\n")
 for _, r in halluc.iterrows():
@@ -246,82 +232,65 @@ for _, r in halluc.iterrows():
     print("  GraphRAG  (đúng):", r["graph_answer"])
     print("  Đáp án          :", r["reference"], "\n")''')
 
-# ---------------------------------------------------------------- Cost analysis
+# ---------------------------------------------------------------- Cost
 md(r"""## Phân tích chi phí (Deliverable #4) — Token usage & Time
 
-So sánh chi phí giai đoạn **Indexing** (dựng đồ thị, chỉ làm 1 lần) và **Evaluation** (truy vấn).
-Vì dùng Ollama cục bộ nên **chi phí tiền tệ = 0$**; ta đo token và thời gian như đại lượng thay thế.""")
+Hai giai đoạn: **Indexing** (dựng đồ thị, chạy 1 lần, tốn nhất) và **Evaluation** (truy vấn). Dùng Ollama cục bộ
+nên **chi phí tiền tệ = $0.00**; ta đo token + thời gian làm đại lượng thay thế.""")
 code(r'''cost = pd.DataFrame([
-    {"Giai đoạn": "Indexing (42 câu → triples)",
-     "LLM calls": INDEX_STATS["calls"],
-     "Prompt tokens": INDEX_STATS["prompt_tokens"],
+    {"Giai đoạn": f"Indexing ({META['n_chunks']} chunks → triples)",
+     "LLM calls": INDEX_STATS["calls"], "Prompt tokens": INDEX_STATS["prompt_tokens"],
      "Completion tokens": INDEX_STATS["completion_tokens"],
      "Tổng tokens": INDEX_STATS["prompt_tokens"] + INDEX_STATS["completion_tokens"],
      "Thời gian (s)": round(INDEX_SECONDS, 1)},
     {"Giai đoạn": "Evaluation (20 Q × 2 hệ thống)",
-     "LLM calls": EVAL_STATS["calls"],
-     "Prompt tokens": EVAL_STATS["prompt_tokens"],
+     "LLM calls": EVAL_STATS["calls"], "Prompt tokens": EVAL_STATS["prompt_tokens"],
      "Completion tokens": EVAL_STATS["completion_tokens"],
      "Tổng tokens": EVAL_STATS["prompt_tokens"] + EVAL_STATS["completion_tokens"],
      "Thời gian (s)": round(EVAL_STATS["seconds"], 1)},
 ])
-print("Mô hình:", LLM_MODEL, "| Chi phí tiền tệ: $0.00 (Ollama cục bộ)")
+avg = INDEX_SECONDS / max(META["n_chunks"], 1)
+print(f"Mô hình: {gc.LLM_MODEL} | Chi phí tiền tệ: $0.00 (Ollama cục bộ)")
+print(f"Tốc độ trích xuất TB: {avg:.1f}s/chunk | "
+      f"Ngoại suy toàn bộ ~2000 chunk ≈ {avg*2000/60:.0f} phút (lý do phải lấy mẫu)")
 cost''')
 
-# ---------------------------------------------------------------- Persist results
+# ---------------------------------------------------------------- Persist
 md(r"""## Lưu kết quả ra file (để output không bị mất)
 
-Mọi bảng kết quả được ghi xuống đĩa (`results_20q_comparison.csv`, `cost_analysis.csv`,
-`RESULTS.md`). Nhờ vậy dù notebook bị **Clear Outputs** hay chạy lại, dữ liệu vẫn còn nguyên
-trong các file này.""")
-code(r'''# 1) Bảng so sánh 20 câu hỏi -> CSV
-df.to_csv("results_20q_comparison.csv", index=False, encoding="utf-8-sig")
-# 2) Bảng chi phí -> CSV
+Ghi mọi bảng xuống đĩa (`results_20q_comparison.csv`, `cost_analysis.csv`, `RESULTS.md`) — dù notebook bị
+**Clear Outputs** hay chạy lại, dữ liệu vẫn còn.""")
+code(r'''df.to_csv("results_20q_comparison.csv", index=False, encoding="utf-8-sig")
 cost.to_csv("cost_analysis.csv", index=False, encoding="utf-8-sig")
-
-# 3) Báo cáo tổng hợp dạng Markdown (Deliverable #3 + #4) -> RESULTS.md
-lines = []
-lines.append("# KẾT QUẢ LAB DAY 19 — GraphRAG vs Flat RAG\n")
-lines.append(f"- Mô hình LLM: `{LLM_MODEL}` (Ollama, local) · Chi phí tiền tệ: **$0.00**")
-lines.append(f"- Embeddings: all-MiniLM-L6-v2 · Vector DB: FAISS · Graph: NetworkX "
-             f"({G.number_of_nodes()} node, {G.number_of_edges()} cạnh)\n")
-
-lines.append("## Tổng hợp độ chính xác")
-lines.append(summary.to_markdown(index=False))
-
-lines.append("\n## Deliverable #4 — Phân tích chi phí (Token usage & Time)")
-lines.append(cost.to_markdown(index=False))
-
-lines.append("\n## Deliverable #3 — Bảng so sánh 20 câu hỏi")
-tbl = df[["hop", "question", "flat_ok", "graph_ok", "flat_answer", "graph_answer"]]
-lines.append(tbl.to_markdown(index=False))
-
-lines.append("\n## Các trường hợp Flat RAG ảo giác nhưng GraphRAG đúng")
+lines = ["# KẾT QUẢ LAB DAY 19 — GraphRAG vs Flat RAG (US EV Corpus)\n",
+         f"- LLM: `{gc.LLM_MODEL}` (Ollama, local) · Chi phí tiền tệ: **$0.00**",
+         f"- Corpus: {META['n_docs']} docs → {META['n_chunks']} sampled chunks · "
+         f"Graph: NetworkX ({G.number_of_nodes()} node, {G.number_of_edges()} cạnh)\n",
+         "## Tổng hợp độ chính xác", summary.to_markdown(index=False),
+         "\n## Deliverable #4 — Chi phí (Token usage & Time)", cost.to_markdown(index=False),
+         "\n## Deliverable #3 — Bảng so sánh 20 câu hỏi",
+         df[["hop","question","flat_ok","graph_ok","flat_answer","graph_answer"]].to_markdown(index=False),
+         "\n## Các trường hợp Flat RAG sai nhưng GraphRAG đúng"]
 for _, r in halluc.iterrows():
-    lines.append(f"\n**Q:** {r['question']}")
-    lines.append(f"- Flat RAG (sai): {r['flat_answer']}")
-    lines.append(f"- GraphRAG (đúng): {r['graph_answer']}")
-    lines.append(f"- Đáp án: {r['reference']}")
-
-with open("RESULTS.md", "w", encoding="utf-8") as fh:
-    fh.write("\n".join(lines))
-
-print("Đã lưu: results_20q_comparison.csv, cost_analysis.csv, RESULTS.md")
-print("\n----- RESULTS.md (preview) -----\n")
-print("\n".join(lines[:14]))''')
+    lines += [f"\n**Q:** {r['question']}", f"- Flat RAG (sai): {r['flat_answer']}",
+              f"- GraphRAG (đúng): {r['graph_answer']}", f"- Đáp án: {r['reference']}"]
+open("RESULTS.md", "w", encoding="utf-8").write("\n".join(lines))
+print("Đã lưu: results_20q_comparison.csv, cost_analysis.csv, RESULTS.md")''')
 
 # ---------------------------------------------------------------- Conclusion
 md(r"""## Kết luận
 
-- **GraphRAG vượt trội ở câu hỏi đa bước:** nhờ duyệt cạnh quan hệ tường minh (BFS 2-hop), nó ghép được
-  các sự kiện rời rạc mà Flat RAG — vốn chỉ dựa trên độ tương tự vector — bỏ sót và hay **bịa**.
-- **Khử trùng lặp** là điều kiện cần để các chuỗi suy luận không bị đứt gãy.
-- **Chi phí:** Indexing tốn nhiều LLM call hơn (mỗi câu một lần trích xuất) nhưng chỉ làm **một lần**;
-  truy vấn sau đó rẻ. Flat RAG rẻ khi index (chỉ embed) nhưng **trả giá bằng độ chính xác** ở câu đa bước.
-- Với corpus lớn hơn, nên chuyển NetworkX → **Neo4j** (Cypher + Bloom) để truy vấn và trực quan hóa tốt hơn.
+- **GraphRAG mạnh ở câu hỏi đa bước:** duyệt cạnh quan hệ tường minh (BFS 2-hop) giúp ghép các sự kiện rời
+  rạc (vd *trụ sở → hãng → mã cổ phiếu*) mà Flat RAG — chỉ dựa độ tương tự vector — bỏ sót và hay **bịa**.
+- **Khử trùng lặp** giữ cho chuỗi suy luận không đứt gãy khi cùng một hãng xuất hiện dưới nhiều tên.
+- **Đánh đổi chi phí (dữ liệu thật):** Indexing tốn nhiều LLM-call và là nút cổ chai → phải **lấy mẫu chunk**;
+  trên corpus thật, **chất lượng trích xuất của mô hình 3B là yếu tố giới hạn** chính của GraphRAG.
+  Flat RAG index rẻ (chỉ embed) và truy hồi trực tiếp tốt cho câu single-hop.
+- Hướng cải thiện: mô hình trích xuất mạnh hơn, chuẩn hóa thực thể tốt hơn, và chuyển sang **Neo4j**
+  (Cypher + Bloom) khi mở rộng quy mô.
 
-**Deliverables:** ✅ mã nguồn (notebook) · ✅ ảnh đồ thị `knowledge_graph.png` · ✅ bảng so sánh 20 câu hỏi ·
-✅ phân tích token/time.
+**Deliverables:** ✅ mã nguồn (notebook + modules) · ✅ ảnh đồ thị `knowledge_graph.png` ·
+✅ bảng so sánh 20 câu hỏi (`RESULTS.md`, CSV) · ✅ phân tích token/time.
 """)
 
 nb = new_notebook(cells=cells)

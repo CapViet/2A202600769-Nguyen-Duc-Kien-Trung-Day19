@@ -1,14 +1,21 @@
 """
 graphrag_core.py
 ================
-Core logic for the Day-19 GraphRAG lab. Kept as a plain module so the pieces
-can be unit-tested quickly against Ollama before being mirrored into the
-notebook cells. Fully local stack:
+Core logic for the Day-19 GraphRAG lab.
 
-    LLM        : Ollama (qwen2.5:3b) via HTTP  -> extraction + answer generation
-    Embeddings : sentence-transformers all-MiniLM-L6-v2 (USE_TF=0 to dodge TF/Keras3)
-    Vector DB  : ChromaDB (Flat RAG)
-    Graph      : NetworkX MultiDiGraph (GraphRAG)
+LLM provider is **pluggable** -- switch backend with ONE environment variable,
+no code change, so a grader can run the whole pipeline on their own provider:
+
+    # local, free (default)
+    GRAPHRAG_PROVIDER=ollama     GRAPHRAG_MODEL=qwen2.5:3b
+    # OpenAI
+    GRAPHRAG_PROVIDER=openai     GRAPHRAG_MODEL=gpt-4o-mini      OPENAI_API_KEY=...
+    # Anthropic Claude
+    GRAPHRAG_PROVIDER=anthropic  GRAPHRAG_MODEL=claude-opus-4-8  ANTHROPIC_API_KEY=...
+    # Google Gemini
+    GRAPHRAG_PROVIDER=google     GRAPHRAG_MODEL=gemini-1.5-flash GOOGLE_API_KEY=...
+
+Default stack: Ollama LLM + MiniLM embeddings + FAISS (Flat RAG) + NetworkX (graph).
 """
 import os
 os.environ.setdefault("USE_TF", "0")
@@ -21,8 +28,18 @@ import time
 import urllib.request
 from collections import defaultdict
 
-OLLAMA_URL = "http://localhost:11434/api"
-LLM_MODEL = "qwen2.5:3b"
+# ---------------------------------------------------------------------------
+# Provider configuration (override via environment variables)
+# ---------------------------------------------------------------------------
+PROVIDER = os.environ.get("GRAPHRAG_PROVIDER", "ollama").lower()
+_DEFAULT_MODELS = {
+    "ollama": "qwen2.5:3b",
+    "openai": "gpt-4o-mini",
+    "anthropic": "claude-opus-4-8",
+    "google": "gemini-1.5-flash",
+}
+LLM_MODEL = os.environ.get("GRAPHRAG_MODEL", _DEFAULT_MODELS.get(PROVIDER, "qwen2.5:3b"))
+OLLAMA_URL = os.environ.get("OLLAMA_URL", "http://localhost:11434/api")
 
 # ---------------------------------------------------------------------------
 # Token accounting -- lets us report real token usage / latency (deliverable 4)
@@ -35,68 +52,155 @@ def reset_stats():
         STATS[k] = 0 if k != "seconds" else 0.0
 
 
-def ollama_generate(prompt, system=None, temperature=0.0, num_predict=512, fmt=None):
-    """Single-turn completion via Ollama; records token + latency stats."""
+def _record(t0, ptok, ctok):
+    STATS["calls"] += 1
+    STATS["seconds"] += time.time() - t0
+    STATS["prompt_tokens"] += ptok or 0
+    STATS["completion_tokens"] += ctok or 0
+
+
+def _gen_ollama(prompt, system, temperature, num_predict, fmt):
     payload = {
-        "model": LLM_MODEL,
-        "prompt": prompt,
-        "stream": False,
+        "model": LLM_MODEL, "prompt": prompt, "stream": False,
         "options": {"temperature": temperature, "num_predict": num_predict},
     }
     if system:
         payload["system"] = system
     if fmt:
-        payload["format"] = fmt  # e.g. "json" -> constrained JSON output
-    data = json.dumps(payload).encode()
+        payload["format"] = fmt  # "json" -> constrained JSON output
     req = urllib.request.Request(
-        OLLAMA_URL + "/generate", data=data, headers={"Content-Type": "application/json"}
-    )
-    t = time.time()
+        OLLAMA_URL + "/generate", data=json.dumps(payload).encode(),
+        headers={"Content-Type": "application/json"})
+    t0 = time.time()
     resp = json.loads(urllib.request.urlopen(req, timeout=300).read())
-    STATS["calls"] += 1
-    STATS["seconds"] += time.time() - t
-    STATS["prompt_tokens"] += resp.get("prompt_eval_count", 0)
-    STATS["completion_tokens"] += resp.get("eval_count", 0)
+    _record(t0, resp.get("prompt_eval_count"), resp.get("eval_count"))
     return resp.get("response", "")
+
+
+def _gen_openai(prompt, system, temperature, num_predict, fmt):
+    from openai import OpenAI
+    client = OpenAI()
+    msgs = ([{"role": "system", "content": system}] if system else []) + \
+           [{"role": "user", "content": prompt}]
+    kw = {"model": LLM_MODEL, "messages": msgs, "temperature": temperature,
+          "max_tokens": num_predict}
+    if fmt == "json":
+        kw["response_format"] = {"type": "json_object"}
+    t0 = time.time()
+    r = client.chat.completions.create(**kw)
+    u = getattr(r, "usage", None)
+    _record(t0, getattr(u, "prompt_tokens", 0), getattr(u, "completion_tokens", 0))
+    return r.choices[0].message.content or ""
+
+
+def _gen_anthropic(prompt, system, temperature, num_predict, fmt):
+    import anthropic
+    client = anthropic.Anthropic()
+    if fmt == "json":
+        prompt += "\n\nRespond with ONLY valid JSON."
+    t0 = time.time()
+    r = client.messages.create(
+        model=LLM_MODEL, max_tokens=num_predict, temperature=temperature,
+        system=system or anthropic.NOT_GIVEN,
+        messages=[{"role": "user", "content": prompt}])
+    _record(t0, r.usage.input_tokens, r.usage.output_tokens)
+    return "".join(b.text for b in r.content if getattr(b, "type", "") == "text")
+
+
+def _gen_google(prompt, system, temperature, num_predict, fmt):
+    import google.generativeai as genai
+    genai.configure(api_key=os.environ["GOOGLE_API_KEY"])
+    cfg = {"temperature": temperature, "max_output_tokens": num_predict}
+    if fmt == "json":
+        cfg["response_mime_type"] = "application/json"
+    model = genai.GenerativeModel(LLM_MODEL, system_instruction=system,
+                                  generation_config=cfg)
+    t0 = time.time()
+    r = model.generate_content(prompt)
+    um = getattr(r, "usage_metadata", None)
+    _record(t0, getattr(um, "prompt_token_count", 0),
+            getattr(um, "candidates_token_count", 0))
+    return r.text
+
+
+_BACKENDS = {"ollama": _gen_ollama, "openai": _gen_openai,
+             "anthropic": _gen_anthropic, "google": _gen_google}
+
+
+def llm_generate(prompt, system=None, temperature=0.0, num_predict=512, fmt=None):
+    """Single-turn completion via the configured PROVIDER; records token/latency
+    stats. Switch provider with GRAPHRAG_PROVIDER / GRAPHRAG_MODEL env vars."""
+    backend = _BACKENDS.get(PROVIDER)
+    if backend is None:
+        raise ValueError(f"Unknown GRAPHRAG_PROVIDER={PROVIDER!r}; "
+                         f"choose one of {list(_BACKENDS)}")
+    return backend(prompt, system, temperature, num_predict, fmt)
+
+
+# Backwards-compatible alias (older call sites / notebooks)
+ollama_generate = llm_generate
 
 
 # ---------------------------------------------------------------------------
 # Step 1 -- Entity & Relation extraction (Indexing)
 # ---------------------------------------------------------------------------
 EXTRACT_SYSTEM = (
-    "You are a precise information extraction engine. "
-    "From the text you output a knowledge graph as SUBJECT-PREDICATE-OBJECT triples. "
-    "A SUBJECT/OBJECT is a named entity (company, person, product, place) or a literal "
-    "value such as a year. The PREDICATE is an UPPER_SNAKE_CASE relation. "
+    "You are a precise information-extraction engine for the ELECTRIC VEHICLE (EV) "
+    "industry. From the text you output a knowledge graph as SUBJECT-PREDICATE-OBJECT "
+    "triples. A SUBJECT/OBJECT is a named entity (EV company, person/executive, vehicle "
+    "model, stock ticker, place, organization) or a literal value such as a year or "
+    "percentage. The PREDICATE is an UPPER_SNAKE_CASE relation such as CEO_IS, FOUNDED_BY, "
+    "FOUNDED_IN, HEADQUARTERED_IN, MAKES_MODEL, TRADES_AS, INVESTED_IN, COMPETES_WITH, "
+    "ACQUIRED, PARTNERED_WITH, BASED_IN. "
     "Return ONLY JSON of the form {\"triples\": [[\"subject\",\"PREDICATE\",\"object\"], ...]}. "
-    "Use canonical entity names (e.g. 'Google' not 'the company'). Do not invent facts."
+    "Extract only SALIENT, factual relations; ignore opinions and filler. "
+    "Use canonical entity names (e.g. 'General Motors' not 'the automaker'). Do not invent facts. "
+    "If the text has no clear factual relation, return {\"triples\": []}."
 )
 
 EXTRACT_FEWSHOT = (
-    'Text: "OpenAI was founded by Sam Altman and Elon Musk in 2015. It created ChatGPT."\n'
-    'JSON: {"triples": [["OpenAI","FOUNDED_BY","Sam Altman"],'
-    '["OpenAI","FOUNDED_BY","Elon Musk"],["OpenAI","FOUNDED_IN","2015"],'
-    '["OpenAI","CREATED","ChatGPT"]]}'
+    'Text: "Founded in 2015, Nikola Corporation (Nasdaq: NKLA) is headquartered in Phoenix, '
+    'Arizona. NIO\'s CEO, William Li, unveiled the ET7 sedan."\n'
+    'JSON: {"triples": [["Nikola","FOUNDED_IN","2015"],'
+    '["Nikola","TRADES_AS","NKLA"],["Nikola","HEADQUARTERED_IN","Phoenix"],'
+    '["NIO","CEO_IS","William Li"],["NIO","MAKES_MODEL","ET7"]]}'
 )
 
 
+def _good_triple(s, p, o):
+    """Reject junk triples (URLs, times, overly long spans, self-loops) so the
+    graph stays clean despite small-model extraction noise."""
+    if not (s and p and o):
+        return False
+    for x in (s, o):
+        if len(x) > 45 or len(x) < 2:
+            return False
+        if re.search(r"https?://|www\.|@|\.com|webcast|\d{1,2}:\d{2}", x, re.IGNORECASE):
+            return False
+    if s.lower() == o.lower():
+        return False
+    if len(p) > 35:  # the model sometimes emits sentence-long predicates
+        return False
+    return True
+
+
 def extract_triples(text):
-    """LLM -> list of (subj, pred, obj) triples for one document."""
-    prompt = f"{EXTRACT_FEWSHOT}\n\nText: \"{text}\"\nJSON:"
-    raw = ollama_generate(prompt, system=EXTRACT_SYSTEM, fmt="json", num_predict=512)
-    triples = []
+    """LLM -> list of cleaned (subj, pred, obj) triples for one passage."""
+    prompt = f"{EXTRACT_FEWSHOT}\n\nText:\n{text}\n\nJSON:"
+    raw = ollama_generate(prompt, system=EXTRACT_SYSTEM, fmt="json", num_predict=640)
+    cand = []
     try:
         obj = json.loads(raw)
         for t in obj.get("triples", []):
             if isinstance(t, (list, tuple)) and len(t) == 3:
-                s, p, o = (str(x).strip() for x in t)
-                if s and p and o:
-                    triples.append((s, p.upper().replace(" ", "_"), o))
+                cand.append(tuple(str(x).strip() for x in t))
     except json.JSONDecodeError:
-        # best-effort regex salvage if the model wrapped JSON in prose
         for m in re.finditer(r'\[\s*"([^"]+)"\s*,\s*"([^"]+)"\s*,\s*"([^"]+)"\s*\]', raw):
-            s, p, o = m.groups()
-            triples.append((s.strip(), p.strip().upper().replace(" ", "_"), o.strip()))
+            cand.append(tuple(g.strip() for g in m.groups()))
+    triples = []
+    for s, p, o in cand:
+        if _good_triple(s, p, o):
+            triples.append((s, p.upper().replace(" ", "_").strip("_"), o))
     return triples
 
 
@@ -104,14 +208,22 @@ def extract_triples(text):
 # Step 2 -- Graph construction with deduplication (normalisation)
 # ---------------------------------------------------------------------------
 def canonical(name):
-    """Normalise an entity surface form so duplicates collapse to one node."""
-    n = name.strip().strip('."\'')
+    """Normalise an EV-entity surface form so duplicates collapse to one node."""
+    n = name.strip().strip('."\'').strip()
+    n = re.sub(r"\b(Corporation|Corp\.?|Inc\.?|Ltd\.?|LLC|Co\.?|Group|Motors? Company)\b\.?$",
+               "", n, flags=re.IGNORECASE).strip().rstrip(",")
     aliases = {
-        "google llc": "Google", "google inc": "Google", "alphabet": "Alphabet",
-        "openai inc": "OpenAI", "open ai": "OpenAI",
-        "meta platforms": "Meta", "facebook inc": "Meta", "facebook": "Meta",
-        "microsoft corporation": "Microsoft", "microsoft corp": "Microsoft",
-        "deep mind": "DeepMind", "nvidia corporation": "Nvidia",
+        "gm": "General Motors", "general motors": "General Motors",
+        "general motors company": "General Motors",
+        "vw": "Volkswagen", "volkswagen group": "Volkswagen",
+        "ford motor": "Ford", "ford motor company": "Ford",
+        "tesla inc": "Tesla", "tesla motors": "Tesla",
+        "nio inc": "NIO", "byd company": "BYD", "byd auto": "BYD",
+        "rivian automotive": "Rivian", "lucid motors": "Lucid", "lucid group": "Lucid",
+        "nikola corporation": "Nikola", "xpeng motors": "XPeng", "xpeng inc": "XPeng",
+        "vinfast auto": "VinFast", "polestar automotive": "Polestar",
+        "berkshire hathaway inc": "Berkshire Hathaway",
+        "u.s.": "United States", "us": "United States", "usa": "United States",
     }
     return aliases.get(n.lower(), n)
 
@@ -137,20 +249,62 @@ def build_graph(all_triples):
 # ---------------------------------------------------------------------------
 # Step 3 -- GraphRAG query: entity linking -> 2-hop subgraph -> textualize -> LLM
 # ---------------------------------------------------------------------------
+# capitalized words that are NOT entities (question/function words)
+_LINK_STOP = {
+    "what", "which", "who", "whom", "whose", "where", "when", "why", "how",
+    "the", "a", "an", "in", "on", "of", "is", "are", "does", "do", "did", "name",
+    "us", "u.s", "u.s.", "ev", "evs", "i", "and", "or", "for", "with", "to",
+    "company", "maker", "makers", "city", "country", "year", "stock", "ticker",
+    "model", "trade", "trades", "market", "vehicle", "vehicles",
+}
+
+
+def _tokens(s):
+    return [w for w in re.findall(r"[a-z0-9][a-z0-9.\-]+", str(s).lower())]
+
+
+def _question_keys(question):
+    """Significant entity tokens of a question = proper nouns (capitalized words)
+    + numbers. Keying off case avoids matching common verbs like 'trade'/'maker'
+    that otherwise link junk nodes and dilute the retrieved subgraph."""
+    proper = re.findall(r"\b[A-Z][A-Za-z0-9.\-]*\b", question)
+    nums = re.findall(r"\b\d[\d,\.]*\b", question)
+    keys = set()
+    for w in proper + nums:
+        wl = w.lower().strip(".")
+        if wl and wl not in _LINK_STOP and len(wl) >= 2:
+            keys.add(wl)
+    return keys
+
+
 def link_entities(question, G):
-    """Find graph nodes mentioned in the question (case-insensitive substring)."""
+    """Find graph nodes referenced by the question.
+
+    A node matches if its full surface form is a substring of the question, OR if
+    it shares a proper-noun / number token with the question. Token matching is
+    what lets the question word 'Gothenburg' link the compound node
+    'GOTHENBURG, SWEDEN'.
+    """
     q = question.lower()
-    hits = []
+    qkeys = _question_keys(question)
+    scored = []
     for node in G.nodes():
         nl = str(node).lower()
-        if len(nl) >= 3 and nl in q:
-            hits.append(node)
-    # prefer longer / more specific matches, drop nodes contained in another hit
-    hits.sort(key=lambda n: len(str(n)), reverse=True)
+        if len(nl) >= 3 and re.search(r"\b" + re.escape(nl) + r"\b", q):
+            scored.append((node, 100 + len(nl)))  # full-name match: strongest
+            continue
+        ntokens = {t for t in _tokens(node) if len(t) >= 2}
+        shared = qkeys.intersection(ntokens)
+        if shared:
+            spec = sum(len(t) for t in shared) - 0.15 * G.degree(node)
+            scored.append((node, spec))
+    scored.sort(key=lambda x: -x[1])
     final = []
-    for h in hits:
-        if not any(h != o and str(h).lower() in str(o).lower() for o in final):
-            final.append(h)
+    for node, _ in scored:
+        if len(final) >= 5:
+            break
+        if not any(node != o and str(node).lower() in str(o).lower() for o in final):
+            final.append(node)
     return final
 
 

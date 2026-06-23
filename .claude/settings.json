@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -c \"import urllib.request,json; print\\('ollama up:', urllib.request.urlopen\\('http://localhost:11434/api/tags',timeout=10\\).status\\)\")",
+      "Bash(python -c \"import urllib.request; print\\('up:',urllib.request.urlopen\\('http://localhost:11434/api/tags',timeout=10\\).status\\)\")",
+      "Bash(python -c \"import json; c=json.load\\(open\\('artifacts/_checkpoint.json'\\)\\); print\\('next_index:',c['next_index'],'/',c['n_chunks'],'| triples:',len\\(c['triples']\\),'| seconds:',round\\(c['seconds']\\)\\)\")",
+      "Bash(python -c \"import json; m=json.load\\(open\\('artifacts/index_stats.json'\\)\\); print\\(m\\)\")",
+      "Bash(python -c ' *)",
+      "Bash(USE_TF=0 timeout 200 python -c ' *)"
+    ]
+  }
+}

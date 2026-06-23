@@ -1,0 +1,37 @@
+Loaded 70 docs -> 341 sampled chunks
+Resuming from checkpoint at chunk 20 (40 triples so far)
+[ 30/341] triples so far=57 | 138s | 4.6s/chunk
+[ 40/341] triples so far=72 | 171s | 4.3s/chunk
+[ 50/341] triples so far=100 | 218s | 4.4s/chunk
+[ 60/341] triples so far=120 | 268s | 4.5s/chunk
+[ 70/341] triples so far=139 | 312s | 4.5s/chunk
+[ 80/341] triples so far=164 | 457s | 5.7s/chunk
+[ 90/341] triples so far=184 | 522s | 5.8s/chunk
+[100/341] triples so far=201 | 568s | 5.7s/chunk
+[110/341] triples so far=220 | 630s | 5.7s/chunk
+[120/341] triples so far=226 | 672s | 5.6s/chunk
+[130/341] triples so far=237 | 710s | 5.5s/chunk
+[140/341] triples so far=260 | 771s | 5.5s/chunk
+[150/341] triples so far=274 | 820s | 5.5s/chunk
+[160/341] triples so far=286 | 868s | 5.4s/chunk
+[170/341] triples so far=293 | 913s | 5.4s/chunk
+[180/341] triples so far=293 | 943s | 5.2s/chunk
+[190/341] triples so far=312 | 1001s | 5.3s/chunk
+[200/341] triples so far=340 | 1069s | 5.3s/chunk
+[210/341] triples so far=352 | 1129s | 5.4s/chunk
+[220/341] triples so far=362 | 1166s | 5.3s/chunk
+[230/341] triples so far=377 | 1229s | 5.3s/chunk
+[240/341] triples so far=377 | 1256s | 5.2s/chunk
+[250/341] triples so far=377 | 1284s | 5.1s/chunk
+[260/341] triples so far=404 | 1373s | 5.3s/chunk
+[270/341] triples so far=408 | 1403s | 5.2s/chunk
+[280/341] triples so far=416 | 1445s | 5.2s/chunk
+[290/341] triples so far=418 | 1478s | 5.1s/chunk
+[300/341] triples so far=433 | 1515s | 5.1s/chunk
+[310/341] triples so far=449 | 1565s | 5.0s/chunk
+[320/341] triples so far=469 | 1635s | 5.1s/chunk
+[330/341] triples so far=495 | 1710s | 5.2s/chunk
+[340/341] triples so far=518 | 1779s | 5.2s/chunk
+
+DONE: 518 triples in 1782s | graph 579 nodes / 455 edges
+Saved artifacts/ (triples.json, chunks.json, index_stats.json, graph.graphml)

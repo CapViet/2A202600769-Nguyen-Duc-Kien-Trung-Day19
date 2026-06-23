@@ -1,0 +1,1947 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d0" for="edge" attr.name="relation" attr.type="string"/>
+<graph edgedefault="directed"><node id="2010"/>
+<node id="2018"/>
+<node id="2019"/>
+<node id="2020"/>
+<node id="315,000"/>
+<node id="NUMBER_OF_VEHICLES_SOLD_ANNUALLY"/>
+<node id="2.4%"/>
+<node id="PERCENTAGE"/>
+<node id="2%"/>
+<node id="utility company"/>
+<node id="UTILITY_COMPANY"/>
+<node id="electric vehicle market success"/>
+<node id="STATE"/>
+<node id="states_with_ZEV_regulations"/>
+<node id="5%"/>
+<node id="states_without_ZEV_regulations"/>
+<node id="1.3%"/>
+<node id="about two-thirds"/>
+<node id="Cox_Automotive"/>
+<node id="Stephanie Valdez Streaty"/>
+<node id="Tesla"/>
+<node id="Other_EV_brands"/>
+<node id="2024"/>
+<node id="More"/>
+<node id="Higher_EV_sales"/>
+<node id="EV_sales_slowdown"/>
+<node id="global_deliveries_in_Q1_2024"/>
+<node id="51.3%"/>
+<node id="U.S"/>
+<node id="Cadillac"/>
+<node id="Lyriq"/>
+<node id="Mercedes"/>
+<node id="Electric_Vehicle"/>
+<node id="BMW"/>
+<node id="Audi"/>
+<node id="Chevy_Bolt"/>
+<node id="2025"/>
+<node id="Ford"/>
+<node id="Second_Highest"/>
+<node id="Electric_Vehicle_Benefits_and"/>
+<node id="Alternative Fuels Data Center"/>
+<node id="EVs"/>
+<node id="improves public health and the environment"/>
+<node id="reduces emissions"/>
+<node id="improve fuel economy, lower fuel costs"/>
+<node id="lower fuel costs"/>
+<node id="reduce emissions"/>
+<node id="consider life cycle emissions"/>
+<node id="Find_A_Car_tool"/>
+<node id="FuelEconomy.gov"/>
+<node id="2024 Corolla"/>
+<node id="35 MPG"/>
+<node id="Nikola"/>
+<node id="2015"/>
+<node id="NIO"/>
+<node id="ET7"/>
+<node id="Electric Vehicle Benefits and"/>
+<node id="electricity"/>
+<node id="national energy security"/>
+<node id="ElectricVehicleBenefitsAnd"/>
+<node id="All Tools"/>
+<node id="Citi Research"/>
+<node id="Electric Vehicles: Slow, then Fast"/>
+<node id="U_S"/>
+<node id="IRA"/>
+<node id="Environmental_Defense_Fund"/>
+<node id="WSP_USA"/>
+<node id="Environmental Defense Fund"/>
+<node id="transportation and clean air policy"/>
+<node id="historic federal policies"/>
+<node id="tremendous investment"/>
+<node id="job creation"/>
+<node id="zero-emitting cars"/>
+<node id="cleaner air"/>
+<node id="stronger economy"/>
+<node id="Georgia"/>
+<node id="EV_investments_and_jobs_last_year"/>
+<node id="edf.org"/>
+<node id="EDF"/>
+<node id="March 2023 and August 2023"/>
+<node id="United States"/>
+<node id="HIGHEST_STANDARDS_OF_ETHICS"/>
+<node id="Ilaria_Mazzocco"/>
+<node id="State_of_China's_electric_vehicle_industry"/>
+<node id="China"/>
+<node id="65 percent of battery production"/>
+<node id="80 percent of cathode production"/>
+<node id="Electric_Vehicle_Industry"/>
+<node id="Internationalization"/>
+<node id="government"/>
+<node id="electric_vehicle"/>
+<node id="countries"/>
+<node id="proactively"/>
+<node id="Thai"/>
+<node id="temporary_corporate_tax_waivers"/>
+<node id="US EPA"/>
+<node id="Electric Vehicle Myths"/>
+<node id="EV"/>
+<node id="Gasoline car"/>
+<node id="GREET"/>
+<node id="GHGs"/>
+<node id="US_EPA"/>
+<node id="Electric_Vehicle_Myth"/>
+<node id="up to $7.5 billion"/>
+<node id="Joint_OfficE_of_Energy_and_Transportation"/>
+<node id="continuous growth of EV chargers"/>
+<node id="DOE"/>
+<node id="Electric Vehicle Charging Stations map"/>
+<node id="Deloitte Insights"/>
+<node id="Research Centers"/>
+<node id="Proprietary Research"/>
+<node id="Electric vehicle trends"/>
+<node id="Northern and Western Europe"/>
+<node id="Southern and Eastern Europe"/>
+<node id="Electric vehicles in Germany"/>
+<node id="CNBC"/>
+<node id="China's post-coronavirus stimulus plans"/>
+<node id="InsideEVs"/>
+<node id="Plug-in electric car sales in the Netherlands"/>
+<node id="European Commission"/>
+<node id="Reducing CO2 emissions from passenger cars"/>
+<node id="Deloitte"/>
+<node id="Deloitte Touche Tohmatsu Limited"/>
+<node id="DTTL"/>
+<node id="member firms and their related entities"/>
+<node id="related entities"/>
+<node id="BloombergNEF"/>
+<node id="Source:BloombergNEF"/>
+<node id="EVO_Report_2024"/>
+<node id="['BNEF_clients']"/>
+<node id="2040"/>
+<node id="Economic_Transition_Scenario"/>
+<node id="2050"/>
+<node id="Net_Zero_Scenario"/>
+<node id="2027"/>
+<node id="Road_transport_oil_demand_peak"/>
+<node id="2028"/>
+<node id="Road_transport_emissions_peak"/>
+<node id="NVIDIA"/>
+<node id="26.0 billion"/>
+<node id="5.98"/>
+<node id="6.12"/>
+<node id="Jensen_Huang"/>
+<node id="150%"/>
+<node id="$0.10 per share of common stock"/>
+<node id="Polestar"/>
+<node id="PSNY"/>
+<node id="GOTHENBURG, SWEDEN"/>
+<node id="GOTHENBURG"/>
+<node id="third quarter 2023 financial results"/>
+<node id="estar Automotive Holding UK PLC"/>
+<node id="Intangible assets and goodwill 1,529,706"/>
+<node id="Property, plant, and equipment 259,656"/>
+<node id="William Li"/>
+<node id="Polestar 3"/>
+<node id="Polestar 4"/>
+<node id="Polestar 2"/>
+<node id="VinFast"/>
+<node id="unaudited financial results"/>
+<node id="VFS"/>
+<node id="Third Quarter 2024"/>
+<node id="VND13,251,944 million (US$550.0 million)"/>
+<node id="negative 24.0%"/>
+<node id="VFTP"/>
+<node id="Preference Shares issued by VFTP"/>
+<node id="Fourth Quarter of 2024"/>
+<node id="80,000 vehicles"/>
+<node id="ZEEKR"/>
+<node id="ZK"/>
+<node id="HANGZHOU"/>
+<node id="March 2021"/>
+<node id="N/A (not traded on a stock exchange)"/>
+<node id="N/A (not headquartered in a specific place)"/>
+<node id="-9,631,387"/>
+<node id="-1,618,458"/>
+<node id="First Quarter 2024"/>
+<node id="32,728"/>
+<node id="BYD"/>
+<node id="PHEV"/>
+<node id="BEV"/>
+<node id="Chinese carmakers"/>
+<node id="Ford and GM"/>
+<node id="not specified in text"/>
+<node id="Stellantis"/>
+<node id="Leapmotor brand"/>
+<node id="Financial_investors"/>
+<node id="potential for significant future returns"/>
+<node id="Hozon Automobile"/>
+<node id="overseas markets as well as domestically"/>
+<node id="Hong Kong"/>
+<node id="Rox Motor"/>
+<node id="2023"/>
+<node id="electric SUV priced under USD 50,000"/>
+<node id="BluSmart"/>
+<node id="India-based start-up"/>
+<node id="Global EV Outlook 2024"/>
+<node id="Trends in the electric vehicle industry"/>
+<node id="Sustainable Development Technology Canada"/>
+<node id="N/A"/>
+<node id="Natural Resources Canada"/>
+<node id="Atlas Materials"/>
+<node id="USD 27 million seed money"/>
+<node id="Mercedes-Benz"/>
+<node id="solid 2023 financial results"/>
+<node id="Thailand"/>
+<node id="Mercedes-Benz_Vans"/>
+<node id="Sprinter"/>
+<node id="Mercedes-Benz_Group"/>
+<node id="Mercedes_Benz_Group_AG"/>
+<node id="Daimler_AG"/>
+<node id="IEA"/>
+<node id="electric vehicle sales"/>
+<node id="Global EV Data Explorer"/>
+<node id="Electric_Vehicles"/>
+<node id="130 TWh"/>
+<node id="an increasing number of applications"/>
+<node id="REE"/>
+<node id="Daniel Barel"/>
+<node id="Navya"/>
+<node id="23 countries"/>
+<node id="['REE', 'HAS_TECHNOLOGY']"/>
+<node id="REEcornerTM"/>
+<node id="Integration Center"/>
+<node id="Coventry, UK"/>
+<node id="Austin, TX"/>
+<node id="10000"/>
+<node id="None"/>
+<node id="REEcorder"/>
+<node id="First Quarter 2023 Results"/>
+<node id="Hydrogen Electric Trucks"/>
+<node id="Battery Powered Trucks"/>
+<node id="PHOENIX"/>
+<node id="Michael Lohscheller"/>
+<node id="Nikola CEO"/>
+<node id="North American market"/>
+<node id="Hydrogen Fuel Cell Trucks"/>
+<node id="Voltera Power"/>
+<node id="EQT"/>
+<node id="HYLA hydrogen refueling stations"/>
+<node id="Fortescue Future Industries"/>
+<node id="First Quarter 2023"/>
+<node id="[email protected]"/>
+<node id="U.S._Automobile_Delever_Sentiment_Index"/>
+<node id="Cox_Enterprises_Inc"/>
+<node id="Atlanta"/>
+<node id="22_BILLION"/>
+<node id="Zeekr"/>
+<node id="540-&gt;319"/>
+<node id="FT"/>
+<node id="27 February 2025"/>
+<node id="Jonathan_Smoke"/>
+<node id="U.S._Automobile_Dealer_Sentiment"/>
+<node id="34"/>
+<node id="True"/>
+<node id="60"/>
+<node id="U.S._Automobile_Delever_Sentiment"/>
+<node id="EV_sales"/>
+<node id="LOWER_QUARTER_OVER_QUIRTER_AND_YEAR_OVER_YEAR"/>
+<node id="53"/>
+<node id="Cox_Enterprises"/>
+<node id="EV_industry"/>
+<node id="massive_increases_in_government_subsidies"/>
+<node id="explosion_in_amount_of_subsidies_offered"/>
+<node id="US$3.1 billion in tax credits"/>
+<node id="Many EV companies"/>
+<node id="Research and Development (R&amp;D)"/>
+<node id="US-China tensions"/>
+<node id="new restrictions on outbound investment"/>
+<node id="semiconductors"/>
+<node id="international confidence in China's market"/>
+<node id="re key mineral production sites"/>
+<node id="around half of Africa’s mineral exports"/>
+<node id="limit the number of brands"/>
+<node id="JOBS"/>
+<node id="INVESTMENTS"/>
+<node id="Joint_Officel"/>
+<node id="Office_of_Energy_and_Transportation"/>
+<node id="United_States"/>
+<node id="Joint_Office"/>
+<node id="new mobility and energy technologies"/>
+<node id="common connector standards"/>
+<node id="private sector engagement"/>
+<node id="WORKFORCE_DEVELOPMENT"/>
+<node id="US member firms of DTTL"/>
+<node id="US member firms"/>
+<node id="their respective affiliates"/>
+<node id="Cox Automotive"/>
+<node id="Cox Automotive company"/>
+<node id="Kelley Blue Book"/>
+<node id="Total US Vehicle Market"/>
+<node id="Record High EV Sales"/>
+<node id="Ioniq5"/>
+<node id="3% OF_AVERAGE_TRANSACTION_PRICE"/>
+<node id="US_EV_Market"/>
+<node id="Superchargers_and_Destination_Chargers"/>
+<node id="EVgo"/>
+<node id="7.5%"/>
+<node id="ChargePoint"/>
+<node id="6.7%"/>
+<node id="EVConnect"/>
+<node id="2.3%"/>
+<node id="EcoPro_BM"/>
+<node id="126,100_won"/>
+<node id="Trump"/>
+<node id="Electric Vehicles"/>
+<node id="NKLA"/>
+<node id="-8.62%"/>
+<node id="subsidies for electric vehicle purchases"/>
+<node id="Biden"/>
+<node id="the Green New Deal"/>
+<node id="Green New Deal"/>
+<node id="climate change and economic inequality"/>
+<node id="IDTechEx"/>
+<node id="Advanced Electric Cars 2020-2040"/>
+<node id="ACC"/>
+<node id="EV batteries"/>
+<node id="Q3 2024"/>
+<node id="Dealer_Sentiment_Index"/>
+<node id="40"/>
+<node id="42 Q2"/>
+<node id="45 last year"/>
+<node id="U.S._automobile_dealers"/>
+<node id="WEAK"/>
+<node id="ECONOMIC_FACTOR"/>
+<node id="POLITICAL_FACTOR"/>
+<node id="UPCOMING PRESIDENTIAL ELECTION"/>
+<node id="Eroh"/>
+<node id="Longo Toyota"/>
+<node id="Japan"/>
+<node id="EV battery production"/>
+<node id="Federal_subsidy"/>
+<node id="$7500"/>
+<node id="United_Auto_Works"/>
+<node id="General Motors"/>
+<node id="U_S_Electric_Vehicle_sales"/>
+<node id="24"/>
+<node id="more than 10%"/>
+<node id="BNEF"/>
+<node id="NOT_EXIST"/>
+<node id="Germany"/>
+<node id="Flocken Elektrowagen"/>
+<node id="Model Y"/>
+<node id="Apple"/>
+<node id="AAPL"/>
+<node id="UK"/>
+<node id="Hybrid Car"/>
+<node id="Electric Vehicle"/>
+<node id="Diesel Cars"/>
+<node id="Singapore"/>
+<node id="e"/>
+<node id="of charging stations"/>
+<node id="South"/>
+<node id="cost savings on fuel and maintenance"/>
+<node id="West"/>
+<node id="price of an EV model"/>
+<node id="Consumers"/>
+<node id="Traditional car makers"/>
+<node id="Goldman Sachs"/>
+<node id="Kota Yuzawa"/>
+<node id="EV sales are slowing"/>
+<node id="among the pursuit of carbon neutrality"/>
+<node id="EV sales slowdown"/>
+<node id="economic rationality of hybrids"/>
+<node id="China's supply surplus"/>
+<node id="Chinese EV makers"/>
+<node id="Japanese brands"/>
+<node id="Investors"/>
+<node id="Vertical integration"/>
+<node id="SEIA"/>
+<node id="Top Workplace"/>
+<node id="Best Nonprofit to Work For"/>
+<node id="Washington Post"/>
+<node id="Nonprofit Times"/>
+<node id="WASHINGTON, D.C"/>
+<node id="Abigail Ross Hopper"/>
+<node id="president and CEO"/>
+<node id="$29.5 billion"/>
+<node id="$20 billion"/>
+<node id="AUSTIN, TX"/>
+<node id="Organization"/>
+<node id="treatment_of_Solar"/>
+<node id="global_pandemic_and_trade_instability"/>
+<node id="supply_chain_disruptions"/>
+<node id="increased_labor_and_overhead_costs"/>
+<node id="U.S._manufacturing_ramping_up"/>
+<node id="modules_widely_available"/>
+<node id="price_decreases"/>
+<node id="module_prices_continued_to_fall"/>
+<node id="year-over-year_price_elevated"/>
+<node id="industry_continued_to_lead_energy_transition"/>
+<node id="Homeowners and businesses"/>
+<node id="California"/>
+<node id="solar+storage"/>
+<node id="2013"/>
+<node id="EV_and_EV_battery_industries"/>
+<node id="XPeng"/>
+<node id="XOS 5.1.0"/>
+<node id="Level 4 autonomous driving"/>
+<node id="JiYue"/>
+<node id="Level 2 autonomous driving"/>
+<node id="CSIS"/>
+<node id="five forms of subsidy support"/>
+<node id="buyer's rebates accounted"/>
+<node id="2009-2017"/>
+<node id="$49 billion"/>
+<node id="$60.7 billion"/>
+<node id="CATL"/>
+<node id="$809 million"/>
+<node id="EVE Energy"/>
+<node id="$208.9 million"/>
+<node id="2018-2023"/>
+<node id="$1.8 billion"/>
+<node id="for the crown in EV sales in 2024"/>
+<node id="Robert_Heppenstall"/>
+<node id="American_Airlines"/>
+<node id="20.*"/>
+<node id="Feb_2018"/>
+<node id="Robert Hepp"/>
+<node id="gnature Wealth Management"/>
+<node id="Southwest Airlines"/>
+<node id="key states"/>
+<node id="Texas"/>
+<node id="top Southwest states"/>
+<node id="Florida"/>
+<node id="Gregory John Sweeney"/>
+<node id="MBA"/>
+<node id="GTP"/>
+<node id="PwC"/>
+<node id="US electric vehicle charging market growth"/>
+<node id="92 million EVs"/>
+<node id="27 million EVs"/>
+<node id="3 million EVs in 2022"/>
+<node id="at-work segment"/>
+<node id="17% of the entire market"/>
+<node id="apartment buildings (multi-unit residential)"/>
+<node id="15% of all the market"/>
+<node id="17% of all the market"/>
+<node id="EV adoption"/>
+<node id="range anxiety"/>
+<node id="achieving scale"/>
+<node id="U.S. Bank"/>
+<node id="U.S. Energy Information Administration"/>
+<node id="Crude Oil"/>
+<node id="Crude Oil (barrel)"/>
+<node id="123.64"/>
+<node id="71.89"/>
+<node id="72.44"/>
+<node id="-41.4"/>
+<node id="Gasoline"/>
+<node id="Gasoline (gallon)"/>
+<node id="5.01"/>
+<node id="3.12"/>
+<node id="3.00"/>
+<node id="-40.0"/>
+<node id="Natural Gas (mil. Btu)"/>
+<node id="9.48"/>
+<node id="2.53"/>
+<node id="3.40"/>
+<node id="-65.5"/>
+<node id="Heating Oil"/>
+<node id="Heating Oil (gallon)"/>
+<node id="5.15"/>
+<node id="2.44"/>
+<node id="2.10"/>
+<node id="-58.5"/>
+<node id="Haworth"/>
+<node id="EY"/>
+<node id="Global"/>
+<node id="Low_emission_zones"/>
+<node id="bonus pay-outs"/>
+<node id="eCharge"/>
+<node id="Volkswagen"/>
+<node id="Electreon"/>
+<node id="Eurovia"/>
+<node id="VINCI Construction Group subsidiary"/>
+<node id="Walter Scott Investment Managers"/>
+<node id="Chongqing"/>
+<node id="Chengdu"/>
+<node id="BNY Investments"/>
+<node id="other major economies"/>
+<node id="Carl Kawaja"/>
+<node id="Capital Research and Management Company"/>
+<node id="36_years"/>
+<node id="Irfan Furniturewala"/>
+<node id="24_years"/>
+<node id="MBA from Wharton"/>
+<node id="Drew Macklis"/>
+<node id="MBA from Harvard Business School"/>
+<node id="Julie Wang Chou"/>
+<node id="19 years"/>
+<node id="European luxury goods and telecoms"/>
+<node id="Investment analyst"/>
+<node id="Russell_Investments"/>
+<node id="ENSURING_DIGITAL_ACCESSIBILITY"/>
+<node id="Hamilton_Lane_Advisors"/>
+<node id="TSLA"/>
+<node id="Established Automakers"/>
+<node id="Ambitious Startups"/>
+<node id="Blade Battery"/>
+<node id="Xiaomi"/>
+<node id="Biden administration tariffs"/>
+<node id="Cybertruck"/>
+<node id="MarketWatch"/>
+<node id="New_York_Times"/>
+<node id="Elon_Musk"/>
+<node id="Experts"/>
+<node id="Doubt_on_Tesla_and_Other_Car_Stocks"/>
+<node id="related technologies in 2001"/>
+<node id="Wan Gang"/>
+<node id="minister of science and technology"/>
+<node id="existing auto supply chain"/>
+<node id="2001"/>
+<node id="EV technology"/>
+<node id="Five-Year Plan in 2001"/>
+<node id="Tu"/>
+<node id="unprecedented"/>
+<node id="catfish effect"/>
+<node id="Chinese car buyers prefer Chinese brands"/>
+<node id="recycling_technologies"/>
+<node id="strategic_partnerships_with_mining_companies"/>
+<node id="competitive_edge"/>
+<node id="Berkeley-Haas"/>
+<node id="California Management Review"/>
+<node id="Haas School of Business"/>
+<node id="University of California, Berkeley"/>
+<node id="2220 Piedmont Ave. Berkeley, CA 94720-1900"/>
+<node id="65_percent"/>
+<node id="80_percent"/>
+<node id="phasing_out"/>
+<node id="purchase_subsidies"/>
+<node id="NEV"/>
+<node id="Nio"/>
+<node id="Strategy&amp;"/>
+<node id="Q2-2024"/>
+<node id="increased"/>
+<node id="strengthened by Chinese OEMs"/>
+<node id="EV_sales_Q2_2024"/>
+<node id="11%"/>
+<node id="ICE_sales_Q2_2024"/>
+<node id="Full_and_mild_hybrid_sales_Q2_2024"/>
+<node id="21%"/>
+<node id="Hybrid_sales_growth_France"/>
+<node id="40%"/>
+<node id="Hybrid_sales_growth_Spain"/>
+<node id="27%"/>
+<node id="EU_Hybrid_market_share"/>
+<node id="32%"/>
+<node id="Norway_full_and_mild_hybrid_sales_Q2_2024"/>
+<node id="69%"/>
+<node id="BEV_market_share_EU_top_5"/>
+<node id="87%"/>
+<node id="Electric Vehicle Sales Review"/>
+<node id="PwC Autofacts"/>
+<node id="Steven van Arsdale"/>
+<node id="Electric Vehicle Sales Review Q2-2024"/>
+<node id="Felix Kuhnert"/>
+<node id="Strategy&amp; Germany"/>
+<node id="Dr. Jörn Neuhausen"/>
+<node id="PwC Autofacts® and Strategy&amp;"/>
+<node id="The_Motley_Fool"/>
+<node id="1993"/>
+<node id="millions of people every month"/>
+<node id="premium investing solutions"/>
+<node id="free guidance and market analysis"/>
+<node id="personal finance education"/>
+<node id="top-rated podcasts"/>
+<node id="The_Motley_Fool_Foundation"/>
+<node id="XPEV"/>
+<node id="PSNYW"/>
+<node id="Unknown"/>
+<node id="27 per cent"/>
+<node id="McKinsey"/>
+<node id="transition to electric mobility"/>
+<node id="Russell Hensley"/>
+<node id="Kevin Laczkowski"/>
+<node id="Timo MÃ¶ller"/>
+<node id="Dennis Schwedhelm"/>
+<node id="stakeholders_across_the_mobility_ecosystem"/>
+<node id="McFMC"/>
+<edge source="2010" target="2018" id="0">
+  <data key="d0">TO</data>
+</edge>
+<edge source="2019" target="2020" id="0">
+  <data key="d0">TO</data>
+</edge>
+<edge source="315,000" target="NUMBER_OF_VEHICLES_SOLD_ANNUALLY" id="0">
+  <data key="d0">IS_A</data>
+</edge>
+<edge source="2.4%" target="PERCENTAGE" id="0">
+  <data key="d0">IS_A</data>
+</edge>
+<edge source="2%" target="PERCENTAGE" id="0">
+  <data key="d0">IS_A</data>
+</edge>
+<edge source="utility company" target="UTILITY_COMPANY" id="0">
+  <data key="d0">CONTAINS</data>
+</edge>
+<edge source="electric vehicle market success" target="STATE" id="0">
+  <data key="d0">CONTAINS</data>
+</edge>
+<edge source="states_with_ZEV_regulations" target="5%" id="0">
+  <data key="d0">HAS_NEW_ELECTRIC_VEHICLE_SHARE_OF</data>
+</edge>
+<edge source="states_with_ZEV_regulations" target="about two-thirds" id="0">
+  <data key="d0">HAS_PERCENTAGE_OF_2020_US_EV_SALES</data>
+</edge>
+<edge source="states_without_ZEV_regulations" target="1.3%" id="0">
+  <data key="d0">HAS_NEW_ELECTRIC_VEHICLE_SHARE_OF</data>
+</edge>
+<edge source="Cox_Automotive" target="Stephanie Valdez Streaty" id="0">
+  <data key="d0">DIRECTED_BY</data>
+</edge>
+<edge source="Cox_Automotive" target="EV_sales_slowdown" id="0">
+  <data key="d0">EXPECTED</data>
+</edge>
+<edge source="Cox_Automotive" target="U.S" id="0">
+  <data key="d0">FORECASTS_EV_SALES_IN</data>
+</edge>
+<edge source="Tesla" target="Other_EV_brands" id="0">
+  <data key="d0">COMPETES_WITH</data>
+</edge>
+<edge source="Tesla" target="global_deliveries_in_Q1_2024" id="0">
+  <data key="d0">REPORTED_LOWERS</data>
+</edge>
+<edge source="Tesla" target="51.3%" id="0">
+  <data key="d0">MARKET_SHARE_IN_Q1_2024</data>
+</edge>
+<edge source="Tesla" target="BYD" id="0">
+  <data key="d0">COMPETES_WITH</data>
+</edge>
+<edge source="Tesla" target="US$3.1 billion in tax credits" id="0">
+  <data key="d0">RECEIVES</data>
+</edge>
+<edge source="Tesla" target="Many EV companies" id="0">
+  <data key="d0">COMPETES_WITH</data>
+</edge>
+<edge source="Tesla" target="Superchargers_and_Destination_Chargers" id="0">
+  <data key="d0">HAS_NETWORK_OF</data>
+</edge>
+<edge source="Tesla" target="Model Y" id="0">
+  <data key="d0">MAKES_MODEL</data>
+</edge>
+<edge source="Tesla" target="TSLA" id="0">
+  <data key="d0">TRADES_AS</data>
+</edge>
+<edge source="Tesla" target="Established Automakers" id="0">
+  <data key="d0">COMPETES_WITH</data>
+</edge>
+<edge source="Tesla" target="Ambitious Startups" id="0">
+  <data key="d0">COMPETES_WITH</data>
+</edge>
+<edge source="Tesla" target="Xiaomi" id="0">
+  <data key="d0">COMPETES_WITH</data>
+</edge>
+<edge source="Tesla" target="Biden administration tariffs" id="0">
+  <data key="d0">INVESTED_IN</data>
+</edge>
+<edge source="Tesla" target="Cybertruck" id="0">
+  <data key="d0">COMPETES_WITH</data>
+</edge>
+<edge source="Tesla" target="catfish effect" id="0">
+  <data key="d0">IMPPOSED_THE</data>
+</edge>
+<edge source="2024" target="More" id="0">
+  <data key="d0">EXPECTED_YEAR_OF</data>
+</edge>
+<edge source="2024" target="Higher_EV_sales" id="0">
+  <data key="d0">CHARACTERISTIC_OF</data>
+</edge>
+<edge source="Cadillac" target="Lyriq" id="0">
+  <data key="d0">MAKES_MODEL</data>
+</edge>
+<edge source="Mercedes" target="Electric_Vehicle" id="0">
+  <data key="d0">MAKES_MODEL</data>
+</edge>
+<edge source="BMW" target="Electric_Vehicle" id="0">
+  <data key="d0">MAKES_MODEL</data>
+</edge>
+<edge source="BMW" target="Tesla" id="0">
+  <data key="d0">COMPETES_WITH</data>
+</edge>
+<edge source="Audi" target="Electric_Vehicle" id="0">
+  <data key="d0">MAKES_MODEL</data>
+</edge>
+<edge source="Chevy_Bolt" target="2025" id="0">
+  <data key="d0">EXPECTED_NEW_VERSION_LAUNCH_IN</data>
+</edge>
+<edge source="Ford" target="Second_Highest" id="0">
+  <data key="d0">SALES_VOLUME_OF_EV</data>
+</edge>
+<edge source="Ford" target="Chinese carmakers" id="0">
+  <data key="d0">EXPRESSED_OPEN_TO_PARTNERING_WITH</data>
+</edge>
+<edge source="Ford" target="Tesla" id="0">
+  <data key="d0">COMPETES_WITH</data>
+</edge>
+<edge source="Electric_Vehicle_Benefits_and" target="Alternative Fuels Data Center" id="0">
+  <data key="d0">TOPIC</data>
+</edge>
+<edge source="EVs" target="improves public health and the environment" id="0">
+  <data key="d0">HELP_IMPROVE_FUEL_ECONOMY</data>
+</edge>
+<edge source="EVs" target="reduces emissions" id="0">
+  <data key="d0">REDUCE_EMISSIONS</data>
+</edge>
+<edge source="EVs" target="improve fuel economy, lower fuel costs" id="0">
+  <data key="d0">IMPROVE_GREENHOUSE_GAS_EMISSIONS</data>
+</edge>
+<edge source="EVs" target="lower fuel costs" id="0">
+  <data key="d0">LOWER_FUEL_COSTS</data>
+</edge>
+<edge source="EVs" target="reduce emissions" id="0">
+  <data key="d0">REDUCE_EMISSIONS</data>
+</edge>
+<edge source="EVs" target="consider life cycle emissions" id="0">
+  <data key="d0">CONSIDER_LIFE_CYCLE_EMISSIONS</data>
+</edge>
+<edge source="EVs" target="Total US Vehicle Market" id="0">
+  <data key="d0">SHARES_OF</data>
+</edge>
+<edge source="EVs" target="more than 10%" id="0">
+  <data key="d0">SALES_SHARE</data>
+</edge>
+<edge source="Find_A_Car_tool" target="FuelEconomy.gov" id="0">
+  <data key="d0">TRADES_AS</data>
+</edge>
+<edge source="2024 Corolla" target="35 MPG" id="0">
+  <data key="d0">FUEL_ECONOMY_ESTIMATE</data>
+</edge>
+<edge source="Nikola" target="2015" id="0">
+  <data key="d0">FOUNDED_IN</data>
+</edge>
+<edge source="Nikola" target="First Quarter 2023 Results" id="0">
+  <data key="d0">REPORTS_RESULTS</data>
+</edge>
+<edge source="Nikola" target="Hydrogen Electric Trucks" id="0">
+  <data key="d0">HAS_PRODUCT</data>
+</edge>
+<edge source="Nikola" target="Battery Powered Trucks" id="0">
+  <data key="d0">HAS_PRODUCT</data>
+</edge>
+<edge source="Nikola" target="PHOENIX" id="0">
+  <data key="d0">HEADQUARTERED_IN</data>
+</edge>
+<edge source="Nikola" target="North American market" id="0">
+  <data key="d0">FOCUSES_ON</data>
+</edge>
+<edge source="Nikola" target="Hydrogen Fuel Cell Trucks" id="0">
+  <data key="d0">HAS_PRODUCT</data>
+</edge>
+<edge source="Nikola" target="Voltera Power" id="0">
+  <data key="d0">PARTNERED_WITH</data>
+</edge>
+<edge source="Nikola" target="HYLA hydrogen refueling stations" id="0">
+  <data key="d0">HAS_PROJECT</data>
+</edge>
+<edge source="Nikola" target="Fortescue Future Industries" id="0">
+  <data key="d0">WORKING_WITH</data>
+</edge>
+<edge source="Nikola" target="First Quarter 2023" id="0">
+  <data key="d0">REPORTS_RESULTS_IN</data>
+</edge>
+<edge source="Nikola" target="First Quarter 2023" id="1">
+  <data key="d0">REPORTED_RESULTS_IN</data>
+</edge>
+<edge source="Nikola" target="[email protected]" id="0">
+  <data key="d0">HAS_WEBSITE_FOR_INQUIRIES</data>
+</edge>
+<edge source="NIO" target="ET7" id="0">
+  <data key="d0">MAKES_MODEL</data>
+</edge>
+<edge source="NIO" target="William Li" id="0">
+  <data key="d0">CEO_IS</data>
+</edge>
+<edge source="Electric Vehicle Benefits and" target="electricity" id="0">
+  <data key="d0">GENERATES</data>
+</edge>
+<edge source="Electric Vehicle Benefits and" target="national energy security" id="0">
+  <data key="d0">STRENGTHENS</data>
+</edge>
+<edge source="ElectricVehicleBenefitsAnd" target="All Tools" id="0">
+  <data key="d0">TOOL_OR_DATA_SET</data>
+</edge>
+<edge source="Citi Research" target="Electric Vehicles: Slow, then Fast" id="0">
+  <data key="d0">REPORTS</data>
+</edge>
+<edge source="U_S" target="IRA" id="0">
+  <data key="d0">INFLATION_REDUCTION_ACT</data>
+</edge>
+<edge source="IRA" target="historic federal policies" id="0">
+  <data key="d0">CAUSED_BY</data>
+</edge>
+<edge source="IRA" target="tremendous investment" id="0">
+  <data key="d0">RESULTED_IN</data>
+</edge>
+<edge source="IRA" target="job creation" id="0">
+  <data key="d0">RESULTED_IN</data>
+</edge>
+<edge source="IRA" target="zero-emitting cars" id="0">
+  <data key="d0">RESULTED_IN</data>
+</edge>
+<edge source="IRA" target="cleaner air" id="0">
+  <data key="d0">RESULTED_IN</data>
+</edge>
+<edge source="IRA" target="stronger economy" id="0">
+  <data key="d0">RESULTED_IN</data>
+</edge>
+<edge source="IRA" target="limit the number of brands" id="0">
+  <data key="d0">REVISIONS_IN</data>
+</edge>
+<edge source="IRA" target="JOBS" id="0">
+  <data key="d0">IMPACTS_INTERNATIONALLY</data>
+</edge>
+<edge source="IRA" target="INVESTMENTS" id="0">
+  <data key="d0">IMPACTS_INTERNATIONALLY</data>
+</edge>
+<edge source="Environmental_Defense_Fund" target="WSP_USA" id="0">
+  <data key="d0">PARTNERED_WITH</data>
+</edge>
+<edge source="Environmental_Defense_Fund" target="edf.org" id="0">
+  <data key="d0">WEBSITE</data>
+</edge>
+<edge source="Environmental_Defense_Fund" target="United States" id="0">
+  <data key="d0">SECTION_501(C)(3)</data>
+</edge>
+<edge source="Environmental_Defense_Fund" target="HIGHEST_STANDARDS_OF_ETHICS" id="0">
+  <data key="d0">OPERATES_WITH</data>
+</edge>
+<edge source="Environmental Defense Fund" target="transportation and clean air policy" id="0">
+  <data key="d0">MANAGER_OF</data>
+</edge>
+<edge source="Georgia" target="EV_investments_and_jobs_last_year" id="0">
+  <data key="d0">LEADER_IN</data>
+</edge>
+<edge source="EDF" target="March 2023 and August 2023" id="0">
+  <data key="d0">PREVIOUS_ANALYSES</data>
+</edge>
+<edge source="United States" target="27 per cent" id="0">
+  <data key="d0">PERCENTAGE_OF_GROWTH_IN_EV_SALES</data>
+</edge>
+<edge source="Ilaria_Mazzocco" target="State_of_China's_electric_vehicle_industry" id="0">
+  <data key="d0">SUBJECT_OF</data>
+</edge>
+<edge source="China" target="65 percent of battery production" id="0">
+  <data key="d0">ACCOUNTS_FOR</data>
+</edge>
+<edge source="China" target="80 percent of cathode production" id="0">
+  <data key="d0">ACCOUNTS_FOR</data>
+</edge>
+<edge source="China" target="around half of Africa’s mineral exports" id="0">
+  <data key="d0">ABSORBS</data>
+</edge>
+<edge source="China" target="EV_and_EV_battery_industries" id="0">
+  <data key="d0">IS_AT_THE_GLOBAL_FRONTIER_OF</data>
+</edge>
+<edge source="China" target="EV_and_EV_battery_industries" id="1">
+  <data key="d0">AT_THE_GLOBAL_FRONTIER_OF</data>
+</edge>
+<edge source="China" target="BNY Investments" id="0">
+  <data key="d0">LOOKING_BROADER_THAN_HEADLINES</data>
+</edge>
+<edge source="China" target="other major economies" id="0">
+  <data key="d0">MAJOR_ECONOMIES</data>
+</edge>
+<edge source="China" target="related technologies in 2001" id="0">
+  <data key="d0">INVESTED_IN</data>
+</edge>
+<edge source="China" target="Wan Gang" id="0">
+  <data key="d0">FOUNDED_BY</data>
+</edge>
+<edge source="China" target="existing auto supply chain" id="0">
+  <data key="d0">PARTNERED_WITH</data>
+</edge>
+<edge source="China" target="2001" id="0">
+  <data key="d0">FOUNDED_IN</data>
+</edge>
+<edge source="China" target="EV technology" id="0">
+  <data key="d0">MAKES_MODEL</data>
+</edge>
+<edge source="China" target="Five-Year Plan in 2001" id="0">
+  <data key="d0">INVESTED_IN</data>
+</edge>
+<edge source="China" target="Tesla" id="0">
+  <data key="d0">PARTNERED_WITH</data>
+</edge>
+<edge source="China" target="Tesla" id="1">
+  <data key="d0">GAINED_FROM</data>
+</edge>
+<edge source="China" target="65_percent" id="0">
+  <data key="d0">PRODUCES_LITHIUM_BATTERIES</data>
+</edge>
+<edge source="China" target="80_percent" id="0">
+  <data key="d0">PRODUCES_LITHIUM_BATTERIES_CATHODES</data>
+</edge>
+<edge source="China" target="phasing_out" id="0">
+  <data key="d0">EV_SUBSIDIES_PHASED_OUT_THIS_YEAR</data>
+</edge>
+<edge source="China" target="purchase_subsidies" id="0">
+  <data key="d0">EV_SUBSIDIES_PHASED_OUT_THIS_YEAR</data>
+</edge>
+<edge source="China" target="increased" id="0">
+  <data key="d0">EXPORTS_TO_EUROPE</data>
+</edge>
+<edge source="China" target="strengthened by Chinese OEMs" id="0">
+  <data key="d0">DOMESTIC_MARKET_GROWTH</data>
+</edge>
+<edge source="Electric_Vehicle_Industry" target="Internationalization" id="0">
+  <data key="d0">PARTICIPATES_IN</data>
+</edge>
+<edge source="government" target="electric_vehicle" id="0">
+  <data key="d0">INCENTIVES</data>
+</edge>
+<edge source="countries" target="proactively" id="0">
+  <data key="d0">TRY_TO_ATTRACTION_INVESTMENT</data>
+</edge>
+<edge source="Thai" target="temporary_corporate_tax_waivers" id="0">
+  <data key="d0">OFFERED_INCENTIVES</data>
+</edge>
+<edge source="US EPA" target="Electric Vehicle Myths" id="0">
+  <data key="d0">ERGED_FOR</data>
+</edge>
+<edge source="EV" target="Gasoline car" id="0">
+  <data key="d0">TOTAL_GHGS_LOWER_THAN</data>
+</edge>
+<edge source="EV" target="Research and Development (R&amp;D)" id="0">
+  <data key="d0">INVESTED_IN</data>
+</edge>
+<edge source="GREET" target="GHGs" id="0">
+  <data key="d0">PRODUCED_ESTIMATES</data>
+</edge>
+<edge source="US_EPA" target="Electric_Vehicle_Myth" id="0">
+  <data key="d0">COVERS</data>
+</edge>
+<edge source="US_EPA" target="up to $7.5 billion" id="0">
+  <data key="d0">INVESTED_IN</data>
+</edge>
+<edge source="Joint_OfficE_of_Energy_and_Transportation" target="continuous growth of EV chargers" id="0">
+  <data key="d0">TRACKS</data>
+</edge>
+<edge source="DOE" target="Electric Vehicle Charging Stations map" id="0">
+  <data key="d0">HAS_MAP</data>
+</edge>
+<edge source="Deloitte Insights" target="Research Centers" id="0">
+  <data key="d0">HAS_RESEARCH_CENTER</data>
+</edge>
+<edge source="Deloitte Insights" target="Proprietary Research" id="0">
+  <data key="d0">HAS_PROPRIETARY_RESEARCH</data>
+</edge>
+<edge source="Deloitte Insights" target="Electric vehicle trends" id="0">
+  <data key="d0">DISCOVERED</data>
+</edge>
+<edge source="Deloitte Insights" target="Electric vehicle trends" id="1">
+  <data key="d0">PUBLISHED_IN</data>
+</edge>
+<edge source="Deloitte Insights" target="Electric vehicle trends" id="2">
+  <data key="d0">TOPICS</data>
+</edge>
+<edge source="Deloitte Insights" target="Electric vehicles in Germany" id="0">
+  <data key="d0">MENTIONS</data>
+</edge>
+<edge source="Deloitte Insights" target="Unknown" id="0">
+  <data key="d0">BASED_IN</data>
+</edge>
+<edge source="Northern and Western Europe" target="Southern and Eastern Europe" id="0">
+  <data key="d0">GROWTH_OUTSTRIPS</data>
+</edge>
+<edge source="CNBC" target="China's post-coronavirus stimulus plans" id="0">
+  <data key="d0">MENTIONS</data>
+</edge>
+<edge source="InsideEVs" target="Plug-in electric car sales in the Netherlands" id="0">
+  <data key="d0">MENTIONS</data>
+</edge>
+<edge source="European Commission" target="Reducing CO2 emissions from passenger cars" id="0">
+  <data key="d0">MENTIONS</data>
+</edge>
+<edge source="Deloitte" target="Deloitte Touche Tohmatsu Limited" id="0">
+  <data key="d0">REFERS_TO</data>
+</edge>
+<edge source="Deloitte" target="Deloitte Touche Tohmatsu Limited" id="1">
+  <data key="d0">US_REPRESENTATION_OF</data>
+</edge>
+<edge source="Deloitte" target="Deloitte Touche Tohmatsu Limited" id="2">
+  <data key="d0">REFERS_TO_US_AS</data>
+</edge>
+<edge source="Deloitte" target="DTTL" id="0">
+  <data key="d0">NETWORK_OF_MEMBER_FIRMS</data>
+</edge>
+<edge source="Deloitte" target="DTTL" id="1">
+  <data key="d0">REFERS_TO_AS</data>
+</edge>
+<edge source="Deloitte" target="DTTL" id="2">
+  <data key="d0">NETWORK_OF_MEMBER_FIRMS_REFERS_TO</data>
+</edge>
+<edge source="Deloitte" target="DTTL" id="3">
+  <data key="d0">NETWORK_OF_MEMBER_FIRMS_AS</data>
+</edge>
+<edge source="Deloitte" target="member firms and their related entities" id="0">
+  <data key="d0">HAS_RELATED_ENTITIES</data>
+</edge>
+<edge source="Deloitte" target="related entities" id="0">
+  <data key="d0">AFFILIATES</data>
+</edge>
+<edge source="Deloitte" target="related entities" id="1">
+  <data key="d0">HAS_RELATED_ENTITIES_US_AS</data>
+</edge>
+<edge source="Deloitte" target="US member firms of DTTL" id="0">
+  <data key="d0">REPLACES_WITH</data>
+</edge>
+<edge source="Deloitte" target="US member firms" id="0">
+  <data key="d0">REFERS_TO_US_AS</data>
+</edge>
+<edge source="Deloitte" target="their respective affiliates" id="0">
+  <data key="d0">AFFILIATES_US_AS</data>
+</edge>
+<edge source="BloombergNEF" target="Source:BloombergNEF" id="0">
+  <data key="d0">SOURCE</data>
+</edge>
+<edge source="BloombergNEF" target="['BNEF_clients']" id="0">
+  <data key="d0">HAS_CLIENTS</data>
+</edge>
+<edge source="EVO_Report_2024" target="BloombergNEF" id="0">
+  <data key="d0">AUTHORED_BY</data>
+</edge>
+<edge source="2040" target="Economic_Transition_Scenario" id="0">
+  <data key="d0">FORECAST_YEAR</data>
+</edge>
+<edge source="2050" target="Net_Zero_Scenario" id="0">
+  <data key="d0">FORECAST_YEAR</data>
+</edge>
+<edge source="2027" target="Road_transport_oil_demand_peak" id="0">
+  <data key="d0">EVENT_DATE</data>
+</edge>
+<edge source="2028" target="Road_transport_emissions_peak" id="0">
+  <data key="d0">EVENT_DATE</data>
+</edge>
+<edge source="NVIDIA" target="26.0 billion" id="0">
+  <data key="d0">REPORTED_REVENUE</data>
+</edge>
+<edge source="NVIDIA" target="5.98" id="0">
+  <data key="d0">GAAP_EARNINGS_PER_DILUTED_SHARE</data>
+</edge>
+<edge source="NVIDIA" target="6.12" id="0">
+  <data key="d0">NON_GAAP_EARNINGS_PER_DILUTED_SHARE</data>
+</edge>
+<edge source="NVIDIA" target="150%" id="0">
+  <data key="d0">INCREASED_DIVIDEND_BY</data>
+</edge>
+<edge source="NVIDIA" target="$0.10 per share of common stock" id="0">
+  <data key="d0">NEW_DIVIDEND_AMOUNT</data>
+</edge>
+<edge source="Jensen_Huang" target="NVIDIA" id="0">
+  <data key="d0">CEO_OF</data>
+</edge>
+<edge source="Polestar" target="PSNY" id="0">
+  <data key="d0">TRADES_AS</data>
+</edge>
+<edge source="Polestar" target="GOTHENBURG, SWEDEN" id="0">
+  <data key="d0">FOUNDED_IN</data>
+</edge>
+<edge source="Polestar" target="GOTHENBURG" id="0">
+  <data key="d0">BASED_IN</data>
+</edge>
+<edge source="Polestar" target="third quarter 2023 financial results" id="0">
+  <data key="d0">RELEASSED</data>
+</edge>
+<edge source="Polestar" target="estar Automotive Holding UK PLC" id="0">
+  <data key="d0">HOLDING_COMPANY_OF</data>
+</edge>
+<edge source="Polestar" target="ET7" id="0">
+  <data key="d0">MAKES_MODEL</data>
+</edge>
+<edge source="Polestar" target="Polestar 3" id="0">
+  <data key="d0">MAKES_MODEL</data>
+</edge>
+<edge source="Polestar" target="Polestar 4" id="0">
+  <data key="d0">MAKES_MODEL</data>
+</edge>
+<edge source="Polestar" target="Polestar 2" id="0">
+  <data key="d0">MAKES_MODEL</data>
+</edge>
+<edge source="estar Automotive Holding UK PLC" target="Intangible assets and goodwill 1,529,706" id="0">
+  <data key="d0">HAS_ASSETS</data>
+</edge>
+<edge source="estar Automotive Holding UK PLC" target="Property, plant, and equipment 259,656" id="0">
+  <data key="d0">HAS_ASSETS</data>
+</edge>
+<edge source="William Li" target="NIO" id="0">
+  <data key="d0">IS_CEO_OF</data>
+</edge>
+<edge source="VinFast" target="unaudited financial results" id="0">
+  <data key="d0">MAKES_MODEL</data>
+</edge>
+<edge source="VinFast" target="VFS" id="0">
+  <data key="d0">TRADES_AS</data>
+</edge>
+<edge source="VinFast" target="Third Quarter 2024" id="0">
+  <data key="d0">REPORTED_FINANCIAL_RESULTS_IN</data>
+</edge>
+<edge source="VinFast" target="VND13,251,944 million (US$550.0 million)" id="0">
+  <data key="d0">NET_LOSS</data>
+</edge>
+<edge source="VinFast" target="negative 24.0%" id="0">
+  <data key="d0">GROSS_MARGIN</data>
+</edge>
+<edge source="VinFast" target="Fourth Quarter of 2024" id="0">
+  <data key="d0">POISED_FOR_STRENGTH</data>
+</edge>
+<edge source="VinFast" target="80,000 vehicles" id="0">
+  <data key="d0">ANNUAL_DELIVERY_TARGET</data>
+</edge>
+<edge source="VFTP" target="Preference Shares issued by VFTP" id="0">
+  <data key="d0">ISSUED_PREFERENCE_SHARES</data>
+</edge>
+<edge source="ZEEKR" target="ZK" id="0">
+  <data key="d0">TRADES_AS</data>
+</edge>
+<edge source="ZEEKR" target="HANGZHOU" id="0">
+  <data key="d0">BASED_IN</data>
+</edge>
+<edge source="ZEEKR" target="unaudited financial results" id="0">
+  <data key="d0">MAKES_MODEL</data>
+</edge>
+<edge source="ZEEKR" target="March 2021" id="0">
+  <data key="d0">FOUNDED_IN</data>
+</edge>
+<edge source="ZEEKR" target="N/A (not traded on a stock exchange)" id="0">
+  <data key="d0">TRADES_AS</data>
+</edge>
+<edge source="ZEEKR" target="N/A (not headquartered in a specific place)" id="0">
+  <data key="d0">HEADQUARTERED_IN</data>
+</edge>
+<edge source="ZEEKR" target="-9,631,387" id="0">
+  <data key="d0">HAS_SHAREHOLDERS_EQUITY</data>
+</edge>
+<edge source="ZEEKR" target="-1,618,458" id="0">
+  <data key="d0">HAS_NON_CONTROL_EQUITY</data>
+</edge>
+<edge source="ZEEKR" target="First Quarter 2024" id="0">
+  <data key="d0">REPORTED_FINANCIAL_RESULTS_IN</data>
+</edge>
+<edge source="ZEEKR" target="32,728" id="0">
+  <data key="d0">SHARE_BASED_COMPENSATION_EXPENSES</data>
+</edge>
+<edge source="BYD" target="EV" id="0">
+  <data key="d0">MAKES_MODEL</data>
+</edge>
+<edge source="BYD" target="PHEV" id="0">
+  <data key="d0">MAKES_MODEL</data>
+</edge>
+<edge source="BYD" target="BEV" id="0">
+  <data key="d0">MAKES_MODEL</data>
+</edge>
+<edge source="BYD" target="Ford and GM" id="0">
+  <data key="d0">COMPETES_WITH</data>
+</edge>
+<edge source="BYD" target="not specified in text" id="0">
+  <data key="d0">MAKES_MODEL</data>
+</edge>
+<edge source="BYD" target="for the crown in EV sales in 2024" id="0">
+  <data key="d0">CHALLENGES_TESLA</data>
+</edge>
+<edge source="BYD" target="Blade Battery" id="0">
+  <data key="d0">MAKES_MODEL</data>
+</edge>
+<edge source="BYD" target="China" id="0">
+  <data key="d0">BASED_IN</data>
+</edge>
+<edge source="BYD" target="competitive_edge" id="0">
+  <data key="d0">AT_FOOTE_OF</data>
+</edge>
+<edge source="BYD" target="Tesla" id="0">
+  <data key="d0">COMPETES_WITH</data>
+</edge>
+<edge source="BYD" target="NEV" id="0">
+  <data key="d0">MAKES_MODEL</data>
+</edge>
+<edge source="Stellantis" target="Leapmotor brand" id="0">
+  <data key="d0">BECAME_AN_IMPORTANT_SHAREHOLDER_OF</data>
+</edge>
+<edge source="Financial_investors" target="potential for significant future returns" id="0">
+  <data key="d0">SEE_EV_STARTUPS_AS</data>
+</edge>
+<edge source="Hozon Automobile" target="overseas markets as well as domestically" id="0">
+  <data key="d0">LOOKING_TO_EXPAND</data>
+</edge>
+<edge source="Hozon Automobile" target="Hong Kong" id="0">
+  <data key="d0">COULD_GO_PUBLIC_IN</data>
+</edge>
+<edge source="Rox Motor" target="2023" id="0">
+  <data key="d0">LAUNCHED_FIRST_MODEL_IN</data>
+</edge>
+<edge source="Rox Motor" target="electric SUV priced under USD 50,000" id="0">
+  <data key="d0">MAKES_MODEL</data>
+</edge>
+<edge source="2023" target="Record High EV Sales" id="0">
+  <data key="d0">Q4</data>
+</edge>
+<edge source="2023" target="N/A" id="0">
+  <data key="d0">FOUNDED_IN</data>
+</edge>
+<edge source="2023" target="$60.7 billion" id="0">
+  <data key="d0">SUBSIDIES_FROM</data>
+</edge>
+<edge source="BluSmart" target="India-based start-up" id="0">
+  <data key="d0">PROVIDING_RIDE-HAILING_SERVICES</data>
+</edge>
+<edge source="Global EV Outlook 2024" target="Trends in the electric vehicle industry" id="0">
+  <data key="d0">HAS_SOURCE</data>
+</edge>
+<edge source="Sustainable Development Technology Canada" target="N/A" id="0">
+  <data key="d0">GRANTED_FUNDS_TO</data>
+</edge>
+<edge source="Natural Resources Canada" target="N/A" id="0">
+  <data key="d0">GRANTED_FUNDS_TO</data>
+</edge>
+<edge source="Atlas Materials" target="USD 27 million seed money" id="0">
+  <data key="d0">RECEIVED_FUNDS_FROM</data>
+</edge>
+<edge source="Mercedes-Benz" target="solid 2023 financial results" id="0">
+  <data key="d0">SAYS_OF</data>
+</edge>
+<edge source="Mercedes-Benz" target="Thailand" id="0">
+  <data key="d0">DIRECT_SALES_MODEL_EXPANDED_TO</data>
+</edge>
+<edge source="Mercedes-Benz_Vans" target="Sprinter" id="0">
+  <data key="d0">MAKES_MODEL</data>
+</edge>
+<edge source="Mercedes-Benz_Vans" target="Mercedes-Benz_Group" id="0">
+  <data key="d0">PARTNERED_WITH</data>
+</edge>
+<edge source="Mercedes_Benz_Group_AG" target="Daimler_AG" id="0">
+  <data key="d0">PREVIOUSLY_KNOWN_AS</data>
+</edge>
+<edge source="IEA" target="electric vehicle sales" id="0">
+  <data key="d0">HAS_DATA_ON</data>
+</edge>
+<edge source="IEA" target="Global EV Data Explorer" id="0">
+  <data key="d0">PROVIDES_DATA_IN</data>
+</edge>
+<edge source="IEA" target="an increasing number of applications" id="0">
+  <data key="d0">ST_OF_OWNERSHIP_BASED</data>
+</edge>
+<edge source="Electric_Vehicles" target="130 TWh" id="0">
+  <data key="d0">CONSUMED_ELECTRICITY_IN_2023</data>
+</edge>
+<edge source="REE" target="Daniel Barel" id="0">
+  <data key="d0">FOUNDED_BY</data>
+</edge>
+<edge source="REE" target="Daniel Barel" id="1">
+  <data key="d0">EXECUTIVE</data>
+</edge>
+<edge source="REE" target="Navya" id="0">
+  <data key="d0">ENTERS_STRATEGIC_COLLABORATION_WITH</data>
+</edge>
+<edge source="REE" target="2015" id="0">
+  <data key="d0">FOUNDED_IN</data>
+</edge>
+<edge source="REE" target="Integration Center" id="0">
+  <data key="d0">MAKES_MODEL</data>
+</edge>
+<edge source="REE" target="Coventry, UK" id="0">
+  <data key="d0">BASED_IN</data>
+</edge>
+<edge source="REE" target="Austin, TX" id="0">
+  <data key="d0">PLANS_TO_OPEN_IN</data>
+</edge>
+<edge source="REE" target="10000" id="0">
+  <data key="d0">HAS_INITIAL_CAPACITY_BY_END_OF_2022</data>
+</edge>
+<edge source="REE" target="None" id="0">
+  <data key="d0">FOUNDED_IN</data>
+</edge>
+<edge source="REE" target="None" id="1">
+  <data key="d0">HEADQUARTERED_IN</data>
+</edge>
+<edge source="REE" target="REEcorder" id="0">
+  <data key="d0">MAKES_MODEL</data>
+</edge>
+<edge source="Navya" target="23 countries" id="0">
+  <data key="d0">ACTIVELY_OPERATES_IN</data>
+</edge>
+<edge source="['REE', 'HAS_TECHNOLOGY']" target="REEcornerTM" id="0">
+  <data key="d0">NAME_OF</data>
+</edge>
+<edge source="Michael Lohscheller" target="Nikola CEO" id="0">
+  <data key="d0">IS_SAME_AS</data>
+</edge>
+<edge source="Voltera Power" target="EQT" id="0">
+  <data key="d0">BACKED_BY</data>
+</edge>
+<edge source="U.S._Automobile_Delever_Sentiment_Index" target="Cox_Enterprises_Inc" id="0">
+  <data key="d0">SUBSIDIARY_OF</data>
+</edge>
+<edge source="Cox_Enterprises_Inc" target="Atlanta" id="0">
+  <data key="d0">BASED_IN</data>
+</edge>
+<edge source="Cox_Enterprises_Inc" target="22_BILLION" id="0">
+  <data key="d0">ANNUAL_REVENUE</data>
+</edge>
+<edge source="Cox_Enterprises_Inc" target="Cox_Enterprises" id="0">
+  <data key="d0">FOUNDED_BY</data>
+</edge>
+<edge source="Zeekr" target="United States" id="0">
+  <data key="d0">IPOD_IN</data>
+</edge>
+<edge source="Zeekr" target="540-&gt;319" id="0">
+  <data key="d0">PRICE_CHANGE_FROM_IPO</data>
+</edge>
+<edge source="FT" target="27 February 2025" id="0">
+  <data key="d0">OFFER_AVAILABLE_UNTIL</data>
+</edge>
+<edge source="Jonathan_Smoke" target="Cox_Automotive" id="0">
+  <data key="d0">CEO_IS</data>
+</edge>
+<edge source="U.S._Automobile_Dealer_Sentiment" target="34" id="0">
+  <data key="d0">SCORE_IN_Q3</data>
+</edge>
+<edge source="U.S._Automobile_Dealer_Sentiment" target="True" id="0">
+  <data key="d0">LOWER_THAN_SCORE_ONE_YEAR_AGO</data>
+</edge>
+<edge source="U.S._Automobile_Dealer_Sentiment" target="60" id="0">
+  <data key="d0">DOWN_SIGNIFICANTLY_FROM_INDEX_PEAK</data>
+</edge>
+<edge source="U.S._Automobile_Delever_Sentiment" target="EV_sales" id="0">
+  <data key="d0">STUMBLE_IN_Q3</data>
+</edge>
+<edge source="U.S._Automobile_Delever_Sentiment" target="LOWER_QUARTER_OVER_QUIRTER_AND_YEAR_OVER_YEAR" id="0">
+  <data key="d0">FUTURE_EV_SALES_INDEX_SCORES</data>
+</edge>
+<edge source="U.S._Automobile_Delever_Sentiment" target="53" id="0">
+  <data key="d0">EV_TAX_CREDIT_INDEX_SCORE</data>
+</edge>
+<edge source="EV_industry" target="massive_increases_in_government_subsidies" id="0">
+  <data key="d0">EXPERIENCES</data>
+</edge>
+<edge source="EV_industry" target="explosion_in_amount_of_subsidies_offered" id="0">
+  <data key="d0">EXPERIENCES</data>
+</edge>
+<edge source="EV_industry" target="recycling_technologies" id="0">
+  <data key="d0">INVESTED_IN</data>
+</edge>
+<edge source="EV_industry" target="strategic_partnerships_with_mining_companies" id="0">
+  <data key="d0">TRADES_AS</data>
+</edge>
+<edge source="US-China tensions" target="new restrictions on outbound investment" id="0">
+  <data key="d0">EXPECTS</data>
+</edge>
+<edge source="US-China tensions" target="semiconductors" id="0">
+  <data key="d0">TARGETS</data>
+</edge>
+<edge source="US-China tensions" target="international confidence in China's market" id="0">
+  <data key="d0">AFFECTS</data>
+</edge>
+<edge source="US-China tensions" target="re key mineral production sites" id="0">
+  <data key="d0">ARE_TARGETED_AT</data>
+</edge>
+<edge source="Joint_Officel" target="Office_of_Energy_and_Transportation" id="0">
+  <data key="d0">PARTNER_OF</data>
+</edge>
+<edge source="Joint_Officel" target="United_States" id="0">
+  <data key="d0">BASED_IN</data>
+</edge>
+<edge source="Joint_Office" target="new mobility and energy technologies" id="0">
+  <data key="d0">FUNDING_OPPORTUNITIES_FOR</data>
+</edge>
+<edge source="Joint_Office" target="common connector standards" id="0">
+  <data key="d0">ADVANCES_THE_DEVELOPMENT_OF</data>
+</edge>
+<edge source="Joint_Office" target="private sector engagement" id="0">
+  <data key="d0">DESIGNS_TO_ACCELERATE</data>
+</edge>
+<edge source="Joint_Office" target="WORKFORCE_DEVELOPMENT" id="0">
+  <data key="d0">HAS_FUNCTION</data>
+</edge>
+<edge source="Cox Automotive" target="Cox Automotive company" id="0">
+  <data key="d0">ANTECEDENT_OF</data>
+</edge>
+<edge source="Cox Automotive" target="Q3 2024" id="0">
+  <data key="d0">PUBLISHED_DEALER_SENTIMENT_INDEX</data>
+</edge>
+<edge source="Kelley Blue Book" target="EVs" id="0">
+  <data key="d0">COMPETES_WITH</data>
+</edge>
+<edge source="Ioniq5" target="3% OF_AVERAGE_TRANSACTION_PRICE" id="0">
+  <data key="d0">INCENTIVES_LESS_THAN</data>
+</edge>
+<edge source="US_EV_Market" target="2023" id="0">
+  <data key="d0">PASSED_THE_1_MILLION_SALES_MARK_IN</data>
+</edge>
+<edge source="EVgo" target="7.5%" id="0">
+  <data key="d0">HAS_SHARE</data>
+</edge>
+<edge source="EVgo" target="General Motors" id="0">
+  <data key="d0">PARTNERED_WITH</data>
+</edge>
+<edge source="ChargePoint" target="6.7%" id="0">
+  <data key="d0">HAS_SHARE</data>
+</edge>
+<edge source="EVConnect" target="2.3%" id="0">
+  <data key="d0">HAS_SHARE</data>
+</edge>
+<edge source="EcoPro_BM" target="126,100_won" id="0">
+  <data key="d0">CLOSED_AT</data>
+</edge>
+<edge source="Trump" target="Electric Vehicles" id="0">
+  <data key="d0">REVERSED_COURSE_ON</data>
+</edge>
+<edge source="Trump" target="subsidies for electric vehicle purchases" id="0">
+  <data key="d0">REVERSED_POLICY_ON</data>
+</edge>
+<edge source="Trump" target="European luxury goods and telecoms" id="0">
+  <data key="d0">COVERAGE_OF</data>
+</edge>
+<edge source="Trump" target="Investment analyst" id="0">
+  <data key="d0">WORKS_AS</data>
+</edge>
+<edge source="NKLA" target="-8.62%" id="0">
+  <data key="d0">CLOSED_DOWN_BY</data>
+</edge>
+<edge source="Biden" target="the Green New Deal" id="0">
+  <data key="d0">ADMINISTERED_BY</data>
+</edge>
+<edge source="Green New Deal" target="climate change and economic inequality" id="0">
+  <data key="d0">AIMS_TO_ADDRESS</data>
+</edge>
+<edge source="IDTechEx" target="Advanced Electric Cars 2020-2040" id="0">
+  <data key="d0">SOURCE</data>
+</edge>
+<edge source="ACC" target="EV batteries" id="0">
+  <data key="d0">INVESTED_IN</data>
+</edge>
+<edge source="Dealer_Sentiment_Index" target="40" id="0">
+  <data key="d0">CURRENT_SCORE</data>
+</edge>
+<edge source="Dealer_Sentiment_Index" target="42 Q2" id="0">
+  <data key="d0">PREVIOUS_SCORE</data>
+</edge>
+<edge source="Dealer_Sentiment_Index" target="45 last year" id="0">
+  <data key="d0">FIVE_YEARS_AGO_SCORE</data>
+</edge>
+<edge source="U.S._automobile_dealers" target="WEAK" id="0">
+  <data key="d0">VIEW_MARKET_AS</data>
+</edge>
+<edge source="U.S._automobile_dealers" target="ECONOMIC_FACTOR" id="0">
+  <data key="d0">PERCEIVE_UNCERTAINTY_FROM</data>
+</edge>
+<edge source="U.S._automobile_dealers" target="POLITICAL_FACTOR" id="0">
+  <data key="d0">PERCEIVE_UNCERTAINTY_FROM</data>
+</edge>
+<edge source="U.S._automobile_dealers" target="UPCOMING PRESIDENTIAL ELECTION" id="0">
+  <data key="d0">UPCOMING_EVENT_AFFECTS_CONFIDENCE</data>
+</edge>
+<edge source="Eroh" target="Longo Toyota" id="0">
+  <data key="d0">WORKS_AT</data>
+</edge>
+<edge source="Japan" target="EV battery production" id="0">
+  <data key="d0">INVESTED_IN</data>
+</edge>
+<edge source="Federal_subsidy" target="$7500" id="0">
+  <data key="d0">TOWARDS_THE_PURCHASE_PRICE</data>
+</edge>
+<edge source="United_Auto_Works" target="General Motors" id="0">
+  <data key="d0">MAKES_STRIKE_AGAINST</data>
+</edge>
+<edge source="United_Auto_Works" target="Ford" id="0">
+  <data key="d0">MAKES_STRIKE_AGAINST</data>
+</edge>
+<edge source="United_Auto_Works" target="Stellantis" id="0">
+  <data key="d0">MAKES_STRIKE_AGAINST</data>
+</edge>
+<edge source="U_S_Electric_Vehicle_sales" target="24" id="0">
+  <data key="d0">GROW_IN</data>
+</edge>
+<edge source="BNEF" target="NOT_EXIST" id="0">
+  <data key="d0">STATEMENT_ABOUT_EV_SLOWDOWN</data>
+</edge>
+<edge source="Germany" target="Flocken Elektrowagen" id="0">
+  <data key="d0">FOUNDED_MODEL</data>
+</edge>
+<edge source="Germany" target="EV" id="0">
+  <data key="d0">SECOND_POPULAR_OPTION</data>
+</edge>
+<edge source="Apple" target="AAPL" id="0">
+  <data key="d0">TRADES_AS</data>
+</edge>
+<edge source="UK" target="Hybrid Car" id="0">
+  <data key="d0">POPULAR_PURCHASE_TYPE</data>
+</edge>
+<edge source="UK" target="Electric Vehicle" id="0">
+  <data key="d0">POPULAR_PURCHASE_TYPE</data>
+</edge>
+<edge source="UK" target="Diesel Cars" id="0">
+  <data key="d0">POPULAR_PURCHASE_TYPE</data>
+</edge>
+<edge source="Singapore" target="Electric Vehicle" id="0">
+  <data key="d0">POPULAR_PURCHASE_TYPE</data>
+</edge>
+<edge source="e" target="of charging stations" id="0">
+  <data key="d0">AVAILABILITY</data>
+</edge>
+<edge source="South" target="cost savings on fuel and maintenance" id="0">
+  <data key="d0">PRIMARY_CONCERN_OF_CONSUMERS</data>
+</edge>
+<edge source="West" target="price of an EV model" id="0">
+  <data key="d0">PRIMARY_CONCERN_OF_CONSUMERS</data>
+</edge>
+<edge source="Consumers" target="Traditional car makers" id="0">
+  <data key="d0">HAVE_MORE_OPTIONS_THAN_EVEN</data>
+</edge>
+<edge source="Goldman Sachs" target="Kota Yuzawa" id="0">
+  <data key="d0">HAS_RESEARCH_ANALYST</data>
+</edge>
+<edge source="Goldman Sachs" target="EV sales slowdown" id="0">
+  <data key="d0">MENTIONS</data>
+</edge>
+<edge source="Goldman Sachs" target="economic rationality of hybrids" id="0">
+  <data key="d0">MENTIONS</data>
+</edge>
+<edge source="Goldman Sachs" target="China's supply surplus" id="0">
+  <data key="d0">MENTIONS</data>
+</edge>
+<edge source="Kota Yuzawa" target="EV sales are slowing" id="0">
+  <data key="d0">SAYS</data>
+</edge>
+<edge source="Kota Yuzawa" target="among the pursuit of carbon neutrality" id="0">
+  <data key="d0">EXPECTS_DEMAND_GROWTH</data>
+</edge>
+<edge source="Chinese EV makers" target="Japanese brands" id="0">
+  <data key="d0">POSE_A_MAJOR_THREAT_TO</data>
+</edge>
+<edge source="Chinese EV makers" target="2023" id="0">
+  <data key="d0">EXPORT_EV_SINCE</data>
+</edge>
+<edge source="Investors" target="Vertical integration" id="0">
+  <data key="d0">NEEDS_UPFRONT_INVESTMENT_IN</data>
+</edge>
+<edge source="SEIA" target="Top Workplace" id="0">
+  <data key="d0">HAS_AWARDED</data>
+</edge>
+<edge source="SEIA" target="Best Nonprofit to Work For" id="0">
+  <data key="d0">HAS_AWARDED</data>
+</edge>
+<edge source="SEIA" target="Washington Post" id="0">
+  <data key="d0">NAMED_BY</data>
+</edge>
+<edge source="SEIA" target="Nonprofit Times" id="0">
+  <data key="d0">NAMED_BY</data>
+</edge>
+<edge source="SEIA" target="WASHINGTON, D.C" id="0">
+  <data key="d0">LOCATED_IN</data>
+</edge>
+<edge source="SEIA" target="$29.5 billion" id="0">
+  <data key="d0">CONTRIBUTES_TO</data>
+</edge>
+<edge source="SEIA" target="$20 billion" id="0">
+  <data key="d0">CONTRIBUTES_TO</data>
+</edge>
+<edge source="SEIA" target="AUSTIN, TX" id="0">
+  <data key="d0">LOCATED_IN</data>
+</edge>
+<edge source="SEIA" target="Organization" id="0">
+  <data key="d0">IS_OF_TYPE</data>
+</edge>
+<edge source="SEIA" target="treatment_of_Solar" id="0">
+  <data key="d0">CHALLENGED_BY</data>
+</edge>
+<edge source="SEIA" target="global_pandemic_and_trade_instability" id="0">
+  <data key="d0">CAUSED_BY</data>
+</edge>
+<edge source="SEIA" target="supply_chain_disruptions" id="0">
+  <data key="d0">IMPACTED_BY</data>
+</edge>
+<edge source="SEIA" target="increased_labor_and_overhead_costs" id="0">
+  <data key="d0">IMPACTED_BY</data>
+</edge>
+<edge source="SEIA" target="U.S._manufacturing_ramping_up" id="0">
+  <data key="d0">RESULT_OF</data>
+</edge>
+<edge source="SEIA" target="modules_widely_available" id="0">
+  <data key="d0">RESULT_OF</data>
+</edge>
+<edge source="SEIA" target="price_decreases" id="0">
+  <data key="d0">RESULT_OF</data>
+</edge>
+<edge source="SEIA" target="module_prices_continued_to_fall" id="0">
+  <data key="d0">RESULT_OF</data>
+</edge>
+<edge source="SEIA" target="year-over-year_price_elevated" id="0">
+  <data key="d0">RESULT_OF</data>
+</edge>
+<edge source="SEIA" target="industry_continued_to_lead_energy_transition" id="0">
+  <data key="d0">RESULT_OF</data>
+</edge>
+<edge source="SEIA" target="Homeowners and businesses" id="0">
+  <data key="d0">FOUNDED_BY</data>
+</edge>
+<edge source="SEIA" target="2013" id="0">
+  <data key="d0">FOUNDED_IN</data>
+</edge>
+<edge source="Abigail Ross Hopper" target="president and CEO" id="0">
+  <data key="d0">POSITION_IS</data>
+</edge>
+<edge source="Abigail Ross Hopper" target="SEIA" id="0">
+  <data key="d0">STATEMENT_OF</data>
+</edge>
+<edge source="California" target="solar+storage" id="0">
+  <data key="d0">INCENTIVES_FOR</data>
+</edge>
+<edge source="California" target="top Southwest states" id="0">
+  <data key="d0">INCLUDES_IN</data>
+</edge>
+<edge source="XPeng" target="XOS 5.1.0" id="0">
+  <data key="d0">INTRODUCES</data>
+</edge>
+<edge source="XPeng" target="Level 4 autonomous driving" id="0">
+  <data key="d0">AIMS_TO_DELIVER</data>
+</edge>
+<edge source="JiYue" target="Level 2 autonomous driving" id="0">
+  <data key="d0">PROVIDES_POINT-TO-PONT_AUTOPILOT</data>
+</edge>
+<edge source="CSIS" target="five forms of subsidy support" id="0">
+  <data key="d0">CALCULATES</data>
+</edge>
+<edge source="CSIS" target="buyer's rebates accounted" id="0">
+  <data key="d0">FINDS</data>
+</edge>
+<edge source="2009-2017" target="$49 billion" id="0">
+  <data key="d0">SUBSIDIES_FROM</data>
+</edge>
+<edge source="CATL" target="$809 million" id="0">
+  <data key="d0">EXTENDED_SUBSIDY_TO</data>
+</edge>
+<edge source="EVE Energy" target="$208.9 million" id="0">
+  <data key="d0">EXTENDED_SUBSIDY_TO</data>
+</edge>
+<edge source="2018-2023" target="$1.8 billion" id="0">
+  <data key="d0">TOTAL_SUBSIDIES_FOR_CATL</data>
+</edge>
+<edge source="Robert_Heppenstall" target="American_Airlines" id="0">
+  <data key="d0">WORKED_FOR</data>
+</edge>
+<edge source="Robert_Heppenstall" target="20.*" id="0">
+  <data key="d0">BORN_IN</data>
+</edge>
+<edge source="Robert_Heppenstall" target="Feb_2018" id="0">
+  <data key="d0">LAST_POSITION_ENDS_BY</data>
+</edge>
+<edge source="Robert Hepp" target="gnature Wealth Management" id="0">
+  <data key="d0">WORKS_AT</data>
+</edge>
+<edge source="Southwest Airlines" target="key states" id="0">
+  <data key="d0">DOMINATES_IN</data>
+</edge>
+<edge source="Texas" target="top Southwest states" id="0">
+  <data key="d0">INCLUDES_IN</data>
+</edge>
+<edge source="Florida" target="top Southwest states" id="0">
+  <data key="d0">INCLUDES_IN</data>
+</edge>
+<edge source="Gregory John Sweeney" target="MBA" id="0">
+  <data key="d0">EDUCATION</data>
+</edge>
+<edge source="Gregory John Sweeney" target="GTP" id="0">
+  <data key="d0">AFFILIATION</data>
+</edge>
+<edge source="PwC" target="US electric vehicle charging market growth" id="0">
+  <data key="d0">COVERS</data>
+</edge>
+<edge source="PwC" target="US electric vehicle charging market growth" id="1">
+  <data key="d0">HAS_RESEARCH</data>
+</edge>
+<edge source="PwC" target="US electric vehicle charging market growth" id="2">
+  <data key="d0">COVERED_TOPIC</data>
+</edge>
+<edge source="PwC" target="US electric vehicle charging market growth" id="3">
+  <data key="d0">SAYS_ABOUT</data>
+</edge>
+<edge source="PwC" target="Strategy&amp;" id="0">
+  <data key="d0">PARTNERED_WITH</data>
+</edge>
+<edge source="US electric vehicle charging market growth" target="92 million EVs" id="0">
+  <data key="d0">GROWTH_BY_2040</data>
+</edge>
+<edge source="US electric vehicle charging market growth" target="27 million EVs" id="0">
+  <data key="d0">GROWTH_BY_2030</data>
+</edge>
+<edge source="US electric vehicle charging market growth" target="3 million EVs in 2022" id="0">
+  <data key="d0">COMPARES_TO</data>
+</edge>
+<edge source="at-work segment" target="17% of the entire market" id="0">
+  <data key="d0">FASTEST_GROWING_SEGMENT_IN_2030</data>
+</edge>
+<edge source="apartment buildings (multi-unit residential)" target="15% of all the market" id="0">
+  <data key="d0">FASTEST_GROWING_SEGMENT_BY_2025</data>
+</edge>
+<edge source="apartment buildings (multi-unit residential)" target="17% of all the market" id="0">
+  <data key="d0">FASTEST_GROWING_SEGMENT_BY_2030</data>
+</edge>
+<edge source="EV adoption" target="range anxiety" id="0">
+  <data key="d0">COULD_BE_BLUNTED_BY</data>
+</edge>
+<edge source="range anxiety" target="achieving scale" id="0">
+  <data key="d0">CAN_ONLY_HAPPEN_BY</data>
+</edge>
+<edge source="U.S. Bank" target="U.S. Energy Information Administration" id="0">
+  <data key="d0">PUBLISHED_BY</data>
+</edge>
+<edge source="Crude Oil" target="Crude Oil (barrel)" id="0">
+  <data key="d0">CATEGORY</data>
+</edge>
+<edge source="Crude Oil" target="123.64" id="0">
+  <data key="d0">2022_PEAK_PRICE</data>
+</edge>
+<edge source="Crude Oil" target="71.89" id="0">
+  <data key="d0">2023_END_PRICE</data>
+</edge>
+<edge source="Crude Oil" target="72.44" id="0">
+  <data key="d0">RECENT_PRICE</data>
+</edge>
+<edge source="Crude Oil" target="-41.4" id="0">
+  <data key="d0">%_CHANGE_FROM_PEAK</data>
+</edge>
+<edge source="Gasoline" target="Gasoline (gallon)" id="0">
+  <data key="d0">CATEGORY</data>
+</edge>
+<edge source="Gasoline" target="5.01" id="0">
+  <data key="d0">2022_PEAK_PRICE</data>
+</edge>
+<edge source="Gasoline" target="3.12" id="0">
+  <data key="d0">2023_END_PRICE</data>
+</edge>
+<edge source="Gasoline" target="3.00" id="0">
+  <data key="d0">RECENT_PRICE</data>
+</edge>
+<edge source="Gasoline" target="-40.0" id="0">
+  <data key="d0">%_CHANGE_FROM_PEAK</data>
+</edge>
+<edge source="Natural Gas (mil. Btu)" target="9.48" id="0">
+  <data key="d0">2022_PEAK_PRICE</data>
+</edge>
+<edge source="Natural Gas (mil. Btu)" target="2.53" id="0">
+  <data key="d0">2023_END_PRICE</data>
+</edge>
+<edge source="Natural Gas (mil. Btu)" target="3.40" id="0">
+  <data key="d0">RECENT_PRICE</data>
+</edge>
+<edge source="Natural Gas (mil. Btu)" target="-65.5" id="0">
+  <data key="d0">%_CHANGE_FROM_PEAK</data>
+</edge>
+<edge source="Heating Oil" target="Heating Oil (gallon)" id="0">
+  <data key="d0">CATEGORY</data>
+</edge>
+<edge source="Heating Oil" target="5.15" id="0">
+  <data key="d0">2022_PEAK_PRICE</data>
+</edge>
+<edge source="Heating Oil" target="2.44" id="0">
+  <data key="d0">2023_END_PRICE</data>
+</edge>
+<edge source="Heating Oil" target="2.10" id="0">
+  <data key="d0">RECENT_PRICE</data>
+</edge>
+<edge source="Heating Oil" target="-58.5" id="0">
+  <data key="d0">%_CHANGE_FROM_PEAK</data>
+</edge>
+<edge source="Haworth" target="U.S. Bank" id="0">
+  <data key="d0">IS_QUOTED_BY</data>
+</edge>
+<edge source="EY" target="Global" id="0">
+  <data key="d0">BASED_IN</data>
+</edge>
+<edge source="Low_emission_zones" target="bonus pay-outs" id="0">
+  <data key="d0">FUND</data>
+</edge>
+<edge source="eCharge" target="Volkswagen" id="0">
+  <data key="d0">LEADS</data>
+</edge>
+<edge source="eCharge" target="Electreon" id="0">
+  <data key="d0">BACKED_BY</data>
+</edge>
+<edge source="eCharge" target="Eurovia" id="0">
+  <data key="d0">PARTNER_OF</data>
+</edge>
+<edge source="eCharge" target="VINCI Construction Group subsidiary" id="0">
+  <data key="d0">PARTNER_OF</data>
+</edge>
+<edge source="Walter Scott Investment Managers" target="Chongqing" id="0">
+  <data key="d0">BASED_IN</data>
+</edge>
+<edge source="Walter Scott Investment Managers" target="Chengdu" id="0">
+  <data key="d0">BASED_IN</data>
+</edge>
+<edge source="Carl Kawaja" target="Capital Research and Management Company" id="0">
+  <data key="d0">CHAIR_OF</data>
+</edge>
+<edge source="Carl Kawaja" target="36_years" id="0">
+  <data key="d0">HAS_EXPERIENCE_IN</data>
+</edge>
+<edge source="Irfan Furniturewala" target="24_years" id="0">
+  <data key="d0">HAS_EXPERIENCE_IN</data>
+</edge>
+<edge source="Irfan Furniturewala" target="MBA from Wharton" id="0">
+  <data key="d0">EDUCATION</data>
+</edge>
+<edge source="Drew Macklis" target="MBA from Harvard Business School" id="0">
+  <data key="d0">EDUCATION</data>
+</edge>
+<edge source="Julie Wang Chou" target="19 years" id="0">
+  <data key="d0">INVESTMENT_INDUSTRY_EXPERIENCE</data>
+</edge>
+<edge source="Russell_Investments" target="ENSURING_DIGITAL_ACCESSIBILITY" id="0">
+  <data key="d0">COMMITTED_TO</data>
+</edge>
+<edge source="Hamilton_Lane_Advisors" target="Russell_Investments" id="0">
+  <data key="d0">OWNS_PART_OF</data>
+</edge>
+<edge source="TSLA" target="Tesla" id="0">
+  <data key="d0">COMPETES_WITH</data>
+</edge>
+<edge source="MarketWatch" target="Tesla" id="0">
+  <data key="d0">MENTIONS</data>
+</edge>
+<edge source="New_York_Times" target="Elon_Musk" id="0">
+  <data key="d0">MENTIONS</data>
+</edge>
+<edge source="Elon_Musk" target="BYD" id="0">
+  <data key="d0">COMMENTED_ON</data>
+</edge>
+<edge source="Experts" target="Doubt_on_Tesla_and_Other_Car_Stocks" id="0">
+  <data key="d0">HAS_DONED</data>
+</edge>
+<edge source="Wan Gang" target="minister of science and technology" id="0">
+  <data key="d0">TRADES_AS</data>
+</edge>
+<edge source="Tu" target="unprecedented" id="0">
+  <data key="d0">SAYS</data>
+</edge>
+<edge source="Tu" target="Chinese car buyers prefer Chinese brands" id="0">
+  <data key="d0">STATEMENTS_ABOUT</data>
+</edge>
+<edge source="Berkeley-Haas" target="California Management Review" id="0">
+  <data key="d0">PUBLISHES</data>
+</edge>
+<edge source="California Management Review" target="Haas School of Business" id="0">
+  <data key="d0">BASED_AT</data>
+</edge>
+<edge source="California Management Review" target="2220 Piedmont Ave. Berkeley, CA 94720-1900" id="0">
+  <data key="d0">ADDRESS</data>
+</edge>
+<edge source="Haas School of Business" target="University of California, Berkeley" id="0">
+  <data key="d0">LOCATED_IN</data>
+</edge>
+<edge source="Nio" target="NEV" id="0">
+  <data key="d0">MAKES_MODEL</data>
+</edge>
+<edge source="Q2-2024" target="2024" id="0">
+  <data key="d0">YEAR</data>
+</edge>
+<edge source="EV_sales_Q2_2024" target="11%" id="0">
+  <data key="d0">INCREASED_BY</data>
+</edge>
+<edge source="ICE_sales_Q2_2024" target="2%" id="0">
+  <data key="d0">DECREASED_BY</data>
+</edge>
+<edge source="Full_and_mild_hybrid_sales_Q2_2024" target="21%" id="0">
+  <data key="d0">GROWTH_OF</data>
+</edge>
+<edge source="Hybrid_sales_growth_France" target="40%" id="0">
+  <data key="d0">GROWTH_OF</data>
+</edge>
+<edge source="Hybrid_sales_growth_Spain" target="27%" id="0">
+  <data key="d0">GROWTH_OF</data>
+</edge>
+<edge source="EU_Hybrid_market_share" target="32%" id="0">
+  <data key="d0">CURRENTLY_AT</data>
+</edge>
+<edge source="Norway_full_and_mild_hybrid_sales_Q2_2024" target="69%" id="0">
+  <data key="d0">GROWTH_OF</data>
+</edge>
+<edge source="BEV_market_share_EU_top_5" target="87%" id="0">
+  <data key="d0">LEADER_WITH</data>
+</edge>
+<edge source="Electric Vehicle Sales Review" target="Q2-2024" id="0">
+  <data key="d0">YEAR</data>
+</edge>
+<edge source="PwC Autofacts" target="Strategy&amp;" id="0">
+  <data key="d0">PARTNERED_WITH</data>
+</edge>
+<edge source="Steven van Arsdale" target="Electric Vehicle Sales Review Q2-2024" id="0">
+  <data key="d0">CONTRIBUTED_TO</data>
+</edge>
+<edge source="Electric Vehicle Sales Review Q2-2024" target="PwC Autofacts® and Strategy&amp;" id="0">
+  <data key="d0">AUTHORED_BY</data>
+</edge>
+<edge source="Felix Kuhnert" target="Strategy&amp; Germany" id="0">
+  <data key="d0">DIRECTOR_OF</data>
+</edge>
+<edge source="Dr. Jörn Neuhausen" target="Strategy&amp; Germany" id="0">
+  <data key="d0">DIRECTOR_OF</data>
+</edge>
+<edge source="The_Motley_Fool" target="1993" id="0">
+  <data key="d0">FOUNDED_IN</data>
+</edge>
+<edge source="The_Motley_Fool" target="millions of people every month" id="0">
+  <data key="d0">REACHES</data>
+</edge>
+<edge source="The_Motley_Fool" target="premium investing solutions" id="0">
+  <data key="d0">OFFERS</data>
+</edge>
+<edge source="The_Motley_Fool" target="free guidance and market analysis" id="0">
+  <data key="d0">OFFERS</data>
+</edge>
+<edge source="The_Motley_Fool" target="personal finance education" id="0">
+  <data key="d0">OFFERS</data>
+</edge>
+<edge source="The_Motley_Fool" target="top-rated podcasts" id="0">
+  <data key="d0">OFFERS</data>
+</edge>
+<edge source="The_Motley_Fool" target="The_Motley_Fool_Foundation" id="0">
+  <data key="d0">HAS_NON_PROFIT</data>
+</edge>
+<edge source="XPEV" target="Nikola" id="0">
+  <data key="d0">TRADES_AS</data>
+</edge>
+<edge source="PSNYW" target="Polestar" id="0">
+  <data key="d0">TRADES_AS</data>
+</edge>
+<edge source="McKinsey" target="transition to electric mobility" id="0">
+  <data key="d0">ANALYZED</data>
+</edge>
+<edge source="McKinsey" target="stakeholders_across_the_mobility_ecosystem" id="0">
+  <data key="d0">WORKS_WITH</data>
+</edge>
+<edge source="McKinsey" target="McFMC" id="0">
+  <data key="d0">HAS_CENTER</data>
+</edge>
+<edge source="Russell Hensley" target="Kevin Laczkowski" id="0">
+  <data key="d0">FOUNDED_BY</data>
+</edge>
+<edge source="Timo MÃ¶ller" target="Dennis Schwedhelm" id="0">
+  <data key="d0">PARTNERED_WITH</data>
+</edge>
+<edge source="McFMC" target="stakeholders_across_the_mobility_ecosystem" id="0">
+  <data key="d0">WORKED_WITH</data>
+</edge>
+</graph></graphml>

@@ -1,21 +1,22 @@
 ﻿hop,question,reference,flat_answer,flat_ok,graph_answer,graph_ok
-1,Who founded OpenAI?,Sam Altman and Elon Musk,OpenAI was founded by Sam Altman and Elon Musk in 2015.,True,Sam Altman and Elon Musk founded OpenAI.,True
-1,Where is DeepMind headquartered?,London,DeepMind is headquartered in London.,True,DeepMind is headquartered in London.,True
-1,Who is the CEO of Microsoft?,Satya Nadella,Satya Nadella is the CEO of Microsoft.,True,"Sundar Pichai currently works for Google, but the CEO of Microsoft is Sundar Pichai. However, based on the provided facts, it should be clarified that as of 2023, Satya Nadella was the CEO of Microsoft.",True
-1,In what year was Instagram founded?,2010,Instagram was founded in 2010.,True,Instagram was founded in 2010.,True
-1,Which company did Google acquire in 2006?,YouTube,Google acquired YouTube in 2006.,True,Google acquired YouTube in 2006.,True
-1,Who founded Nvidia?,Jensen Huang,Nvidia was founded by Jensen Huang in 1993.,True,Jensen Huang founded Nvidia.,True
-1,What model did Anthropic develop?,Claude,Anthropic developed the Claude model.,True,Anthropic developed model Claude.,True
-2,Who founded the company that Google acquired in 2014?,Demis Hassabis (founder of DeepMind),I don't know.,False,"Jan Koum founded the company that Google acquired in 2014, which is WhatsApp.",False
-2,Which company acquired the company that developed AlphaGo?,Google (acquired DeepMind),I don't know.,False,"Google acquired the company that developed AlphaGo, which is DeepMind.",True
-2,Who founded the company that created ChatGPT?,Sam Altman and Elon Musk,"OpenAI created ChatGPT, so the founding company is OpenAI. I don't know who specifically founded OpenAI based on the provided text.",False,Sam Altman and Elon Musk founded the company that created ChatGPT.,True
-2,Which big company invested in the maker of GPT-4?,Microsoft,"Microsoft invested in the maker of GPT-4, which is OpenAI.",True,"Microsoft invested in the maker of GPT-4, which is OpenAI.",True
-3,Who is the CEO of the parent company's subsidiary that acquired YouTube?,Sundar Pichai (CEO of Google),"Sundar Pichai is the CEO of the parent company's subsidiary that acquired YouTube. The parent company here refers to Alphabet, which acquired YouTube in 2006 through its subsidiary Google.",True,I don't know.,False
-2,Which company founded by Mark Zuckerberg acquired WhatsApp?,Meta,"Meta (formerly Facebook) acquired WhatsApp. Since Meta was founded by Mark Zuckerberg and WhatsApp was acquired by Meta, the answer to which company founded by Mark Zuckerberg acquired WhatsApp is Meta.",True,"Meta, which was founded by Mark Zuckerberg, acquired WhatsApp.",True
-2,Who founded the photo-sharing app that Meta acquired in 2012?,Kevin Systrom (founder of Instagram),I don't know.,False,"Instagram was founded by Kevin Systrom and was acquired by Meta in 2012. Therefore, the founder of Instagram is Kevin Systrom.",True
-2,Which code-hosting company that Microsoft acquired was founded by Tom Preston-Werner?,GitHub,"GitHub, which Microsoft acquired in 2018, was founded by Tom Preston-Werner.",True,GitHub was founded by Tom Preston-Werner and acquired by Microsoft in 2018.,True
-2,Elon Musk co-founded OpenAI; which car company did he also found?,Tesla,Tesla,True,"Elon Musk co-founded Tesla, a car company.",True
-2,Which company invested in the maker of the Claude model?,Amazon (invested in Anthropic),I don't know.,False,Amazon invested in the maker of the Claude model.,True
-2,Who founded the company headquartered in London that Google owns?,Demis Hassabis (DeepMind),I don't know.,False,"DeepMind, which is headquartered in London and owned by Alphabet (parent company of Google), was founded by Demis Hassabis.",True
-3,"Name a founder shared by OpenAI, Tesla, and SpaceX.",Elon Musk,Elon Musk,True,Elon Musk,True
-2,Which company developed the model named Gemini and who is its CEO?,"Google, CEO Sundar Pichai",Google developed the Gemini model and Sundar Pichai is its CEO.,True,I don't know.,False
+1,What stock ticker does Tesla trade under?,TSLA,TSLA,True,Tesla trades as TSLA.,True
+1,Which sedan model does NIO make?,ET7,I don't know.,False,Model ET7,True
+1,Who is the CEO of NIO?,William Li,I don't know.,False,William Li is the CEO of NIO.,True
+1,What stock ticker does Polestar trade under?,PSNY,Polestar trades under the stock ticker PSNY.,True,Polestar trades under the stock ticker PSNY.,True
+1,In which city is Polestar based?,Gothenburg,I don't know.,False,Polestar is based in GOTHENBURG.,True
+1,In what year was Nikola founded?,2015,I don't know.,False,Nikola was founded in 2015.,True
+1,In which U.S. city is Nikola headquartered?,Phoenix,I don't know.,False,Nikola is headquartered in PHOENIX.,True
+1,What stock ticker does VinFast trade under?,VFS,VinFast trades under the stock ticker VFS.,True,VinFast trades as VFS.,True
+1,In which country is BYD based?,China,BYD is based in China.,True,BYD is based in China.,True
+1,What charging network does Tesla operate?,Superchargers,Tesla operates a national network of Superchargers and destination chargers that are predominantly located within Metropolitan Statistical Areas (MSAs).,True,Tesla operates a network of Superchargers and Destination Chargers.,True
+2,What stock ticker does the EV maker based in Gothenburg trade under?,PSNY,I don't know.,False,PSNY,True
+2,"Which company, founded in 2015 and headquartered in Phoenix, makes electric trucks?",Nikola,Nikola Corporation,True,Nikola,True
+2,What kind of trucks does the company headquartered in Phoenix produce?,Hydrogen,Nikola Corporation produces hydrogen electric trucks and battery powered trucks headquartered in Phoenix.,True,"The company headquartered in Phoenix, Nikola, produces Hydrogen Electric Trucks and Battery Powered Trucks.",True
+2,Which China-based company competes with Tesla in the EV market?,BYD,BYD competes with Tesla in the EV market.,True,BYD competes with Tesla in the EV market.,True
+2,Who is the chief executive of the company that makes the ET7?,William Li,I don't know.,False,"William Li is the CEO of NIO, which makes the ET7. Therefore, the chief executive of the company that makes the ET7 is William Li.",True
+2,Which Chinese EV company did Elon Musk comment on?,BYD,BYD,True,BYD,True
+2,What stock ticker does the maker of the Model Y trade under?,TSLA,XPEV,False,Tesla trades as TSLA.,True
+1,What was Tesla's reported US EV market share in Q1 2024?,51.3,Tesla's reported US EV market share in Q1 2024 was 51.3%.,True,Tesla's market share in Q1 2024 was 51.3%.,True
+1,What is VinFast's annual delivery target for vehicles?,"80,000","VinFast's annual delivery target for vehicles is 80,000.",True,"VinFast's annual delivery target is 80,000 vehicles.",True
+2,In which city is Tesla's most productive manufacturing hub located?,Shanghai,Tesla's most productive manufacturing hub is located in Shanghai.,True,I don't know.,False
+2,"Besides the Model Y, which more affordable Tesla sedan became popular after price cuts?",Model 3,The Model 3 sedan became popular after Tesla's aggressive price cuts throughout the year.,False,I don't know.,False

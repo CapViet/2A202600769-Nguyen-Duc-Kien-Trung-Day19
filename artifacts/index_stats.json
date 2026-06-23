@@ -1,0 +1,21 @@
+{
+  "stats": {
+    "calls": 341,
+    "prompt_tokens": 180137,
+    "completion_tokens": 17727,
+    "seconds": 1781.988216161728
+  },
+  "seconds": 1782.0358686447144,
+  "n_chunks": 341,
+  "n_docs": 70,
+  "n_triples": 518,
+  "nodes": 579,
+  "edges": 455,
+  "sample": {
+    "size": 900,
+    "overlap": 120,
+    "per_doc": 5,
+    "stride": true
+  },
+  "model": "qwen2.5:3b"
+}
